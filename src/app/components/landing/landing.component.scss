@@ -1,0 +1,125 @@
+
+.landing-page {
+    --background: none;
+    background-image: url('../../../assets/Midinfralanding.jpg'); // Add your background image
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  
+    &::before {
+      content: '';
+      position: absolute;   
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.4)
+      );
+    }
+  }
+  
+  .nav-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px; // Creates three columns
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1;
+    width: 100%;
+    
+    .logo {
+      color: #ff4646;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      grid-column: 1; // Place logo in first column
+    }
+  
+    .nav-items {
+      display: flex;
+      justify-content: center; // Center the nav items
+      gap: 1rem;
+      grid-column: 2; // Place nav items in middle column
+      
+      .nav-button {
+        font-size: 1rem;
+        text-transform: none;
+        --padding-start: 1rem;
+        --padding-end: 1rem;
+        
+        &:hover {
+          --color: var(--ion-color-primary);
+        }
+      }
+    }
+  }
+  
+  .hero-container {
+    position: relative;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: 0 1rem;
+    
+    .logo {
+      max-width: 700px;
+      height: auto;
+    }
+    
+      
+        
+    
+  
+  
+      }
+   
+      .logomenu {
+        max-width: 150px;
+        height: auto;
+      }
+  
+  // Add animations
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .main-title {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .subtitle {
+    animation: fadeIn 1s ease-out 0.5s both;
+  }
+  
+  .nav-button {
+
+    animation: fadeIn 0.5s ease-out;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+  
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
