@@ -14,6 +14,7 @@ import {
   IonLabel,
   IonSkeletonText, IonPopover, IonItem, IonList, IonCol, IonRow, IonGrid, IonCard, IonCardContent, IonBadge } from '@ionic/angular/standalone';
 import { AboutComponent } from 'src/app/components/about/about.component';
+import { Aboutus2Component } from 'src/app/components/aboutus2/aboutus2.component';
   import { LandingComponent } from 'src/app/components/landing/landing.component';
 @Component({
   selector: 'app-home',
@@ -34,7 +35,8 @@ import { AboutComponent } from 'src/app/components/about/about.component';
     IonLabel,
     IonSkeletonText, IonPopover, IonItem, IonList, IonCol, IonRow, IonGrid, IonCard, IonCardContent,IonBadge,
     LandingComponent,
-    AboutComponent
+    AboutComponent,
+    Aboutus2Component
   ],
 
 })
