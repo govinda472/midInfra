@@ -1,0 +1,131 @@
+.contact-container {
+    padding: 2rem;
+    background-color: #1e90ff;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .contact-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .contact-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .contact-form {
+    flex: 1;
+    max-width: 600px;
+    background-color: #0099cc;
+    padding: 1.5rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+  
+  .contact-form h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .submit-button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .contact-image {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .location-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Contact Info styling (now aligned to the left below the form) */
+  .address-info {
+    background-color: #1e90ff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    color: #fff;
+    max-width: 600px;
+    margin-top: 1rem; /* Space below the form */
+    text-align: left;
+  }
+  
+  .address-info h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .contact-details {
+    margin-top: 1rem;
+  }
+  
+  .contact-details p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column; /* Stack form and image vertically on smaller screens */
+    }
+  
+    .contact-form,
+    .contact-image {
+      width: 100%; /* Full width for both form and image */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-heading {
+      font-size: 2rem;
+    }
+  
+    .contact-form h3 {
+      font-size: 1.25rem;
+    }
+  }
+  

@@ -1,0 +1,133 @@
+.strategy-focus-container {
+  position: relative; /* Establish a positioning context */
+  display: grid;
+  grid-template-columns: 1fr 5fr; /* Keep header column small */
+  gap: 15px; /* Reduced gap between cards */
+  align-items: start;
+  padding: 40px;
+  background-color: #007bc1;
+  color: #ffffff;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  margin: 0; /* Remove default margin */
+  overflow: hidden; /* Hide overflow if SVG exceeds container */
+}
+
+.background-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%; /* Increase width to make it wider */
+  height: 100%;
+  z-index: 0; /* Place behind other elements */
+  opacity: 0.5; /* Adjust opacity if needed */
+  transform: translateX(25%); /* Shift SVG to the right */
+}
+
+.strategy-title {
+  grid-column: 1; /* Header in the first column */
+  position: relative;
+  z-index: 1; /* Bring above background SVG */
+}
+
+.strategy-title h1 {
+  font-size: 5em; /* Increased header font size */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-left: 0;
+}
+
+.focus-boxes {
+  grid-column: 2; /* Cards in the second column */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1; /* Bring above background SVG */
+}
+
+.focus-box {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  aspect-ratio: 1; /* Square-shaped cards */
+  max-width: 280px;
+  max-height: 280px;
+  border: 2px solid #ffffff;
+  border-top: none;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  margin: auto; /* Center cards horizontally */
+}
+
+.focus-box:hover {
+  transform: translateY(-10px);
+}
+
+/* Create parted top border */
+.focus-box::before,
+.focus-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: calc(50% - 30px); /* Adjust based on icon width */
+  height: 0;
+  border-top: 2px solid #ffffff;
+}
+
+.focus-box::before {
+  left: 0;
+}
+
+.focus-box::after {
+  right: 0;
+}
+
+.icon {
+  position: absolute;
+  top: -30px; /* Icon overlaps top border */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon img {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  font-size: 1.2em; /* Adjust font size */
+  font-weight: bold;
+  margin-top: 40px; /* Space for icon */
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .focus-boxes {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .focus-boxes {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}

@@ -14,15 +14,18 @@
   }
   
   .card-image {
-    width: 100%;
-    height: 300px; /* Increase height to make images longer */
+    width: 60%;
+    height: 250px; /* Increase height to make images longer */
     object-fit: cover;
   }
   
   .card-footer {
     background-color: #007acc; /* Footer background color */
     padding: 10px 0;
-  }
+    width: 60%; /* Set the width to 80% of the parent container */
+    margin: 0 auto; /* Center the footer */
+}
+
   
   .card-title {
     color: white;
@@ -32,7 +35,7 @@
   }
   
   .underline {
-    width: 40px;
+    width: 100px;
     height: 2px;
     background-color: white;
     margin: 5px auto 0 auto;
