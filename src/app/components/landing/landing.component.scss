@@ -1,4 +1,3 @@
-
 .landing-page {
     --background: none;
     background-image: url('../../../assets/Midinfralanding.jpg'); // Add your background image
@@ -29,6 +28,13 @@
     z-index: 1;
     width: 100%;
     
+    // Add media query for mobile
+    @media (max-width: 768px) {
+      grid-template-columns: auto auto; // Change to two columns
+      padding: 1rem;
+      justify-content: space-between;
+    }
+    
     .logo {
       color: #ff4646;
       font-size: 1.5rem;
@@ -42,6 +48,10 @@
       justify-content: center; // Center the nav items
       gap: 1rem;
       grid-column: 2; // Place nav items in middle column
+      
+      @media (max-width: 768px) {
+        justify-content: flex-end; // Align menu button to right
+      }
       
       .nav-button {
         font-size: 1rem;
@@ -70,18 +80,24 @@
     .logo {
       max-width: 700px;
       height: auto;
+      
+      @media (max-width: 768px) {
+        max-width: 90%; // Make logo responsive
+        margin: 0 auto;
+      }
     }
     
       
         
-    
-  
-  
       }
    
       .logomenu {
         max-width: 150px;
         height: auto;
+        
+        @media (max-width: 768px) {
+          max-width: 120px; // Slightly smaller logo on mobile
+        }
       }
   
   // Add animations

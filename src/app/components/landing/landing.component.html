@@ -1,26 +1,28 @@
- <!-- Navigation Header -->
-  <div class="landing-page">
- <div class="nav-header">
-  <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logomenu">
-  <div class="nav-items">
-    @for (item of menuItems; track $index) {
-      <ion-button 
-        fill="clear" 
-        color="light" 
-        (click)="navigateTo(item)"
-        class="nav-button"
-      > <span style="color: white;">
-        {{ item }}
-      </span>
-        
-      </ion-button>
-    }
+<!-- Navigation Header -->
+<div class="landing-page">
+  <div class="nav-header">
+    <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logomenu">
+    <div class="nav-items">
+      @if (!isMobile()) {
+        @for (item of menuItems; track $index) {
+          <ion-button 
+            fill="clear" 
+            color="light" 
+            (click)="navigateTo(item)"
+            class="nav-button"
+          >
+            <span style="color: white;">{{ item }}</span>
+          </ion-button>
+        }
+      } @else {
+  
+          <ion-menu-button color="light"></ion-menu-button>
+   
+      }
+    </div>
   </div>
-</div>
 
-<!-- Hero Section -->
-<div class="hero-container">
-  <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
-</div>
-
+  <div class="hero-container">
+    <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
+  </div>
 </div>
