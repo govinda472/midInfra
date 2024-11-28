@@ -1,12 +1,30 @@
-<!-- Navigation Header -->
-<div class="landing-page">
+<!-- Side Menu -->
+<ion-menu side="start" menuId="main-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      @for (item of menuItems; track $index) {
+        <ion-item (click)="navigateTo(item)" button>
+          {{ item }}
+        </ion-item>
+      }
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Main Content -->
+<div class="landing-page" id="main-content" (click)="closeMenu()">
   <div class="nav-header">
     <div class="nav-items">
       @if (!isMobile()) {
         @for (item of menuItems; track $index) {
-          <ion-button 
-            fill="clear" 
-            color="light" 
+          <ion-button
+            fill="clear"
+            color="light"
             (click)="navigateTo(item)"
             class="nav-button"
           >
@@ -14,13 +32,10 @@
           </ion-button>
         }
       } @else {
-  
-          <ion-menu-button color="light"></ion-menu-button>
-   
+        <ion-menu-button color="light" menu="main-menu"></ion-menu-button>
       }
     </div>
   </div>
-
   <div class="hero-container">
     <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
   </div>

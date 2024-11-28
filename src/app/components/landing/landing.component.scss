@@ -1,141 +1,134 @@
 .landing-page {
-    --background: none;
-    background-image: url('../../../assets/Midinfralanding.jpg'); // Add your background image
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  
-    &::before {
-      content: '';
-      position: absolute;   
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.4)
-      );
+  --background: none;
+  background-image: url('../../../assets/Midinfralanding.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+ }
+ .landing-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+  min-height: 100vh;
+ }
+ .nav-header {
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 100;
+  width: 100%;
+  background-color: rgba(10, 19, 37, 0.9);
+ }
+ .nav-items {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  grid-column: 2;
+ }
+ .nav-button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: none;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+ }
+ .nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+ }
+ .nav-button:hover::before {
+  transform: translateY(0);
+ }
+ .nav-button span {
+  color: white;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+ }
+ .hero-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  padding: 0 1rem;
+ }
+ .logo {
+  max-width: 700px;
+  height: auto;
+ }
+ // Menu Styles
+ ion-menu {
+  --background: rgba(10, 19, 37, 0.95);
+  --width: 250px;
+  ion-toolbar {
+    --background: rgba(10, 19, 37, 0.95);
+    --color: white;
+  }
+  ion-list {
+    background: transparent;
+  }
+  ion-item {
+    --background: transparent;
+    --color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 8px 0;
+    --padding-start: 20px;
+    --min-height: 50px;
+    &:hover {
+      --background: rgba(255, 255, 255, 0.1);
     }
   }
-  
+ }
+ ion-menu-button {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  --color: white;
+ }
+ @media (max-width: 768px) {
   .nav-header {
-    position: relative;
-    display: grid;
-    grid-template-columns: 200px 1fr 200px; // Creates three columns
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 1;
-    width: 100%;
-    
-    // Add media query for mobile
-    @media (max-width: 768px) {
-      grid-template-columns: auto auto; // Change to two columns
-      padding: 1rem;
-      justify-content: space-between;
-    }
-    
-    .logo {
-      color: #ff4646;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      grid-column: 1; // Place logo in first column
-    }
-  
-    .nav-items {
-      display: flex;
-      justify-content: center; // Center the nav items
-      gap: 1rem;
-      grid-column: 2; // Place nav items in middle column
-      
-      @media (max-width: 768px) {
-        justify-content: flex-end; // Align menu button to right
-      }
-      
-      .nav-button {
-        font-size: 1rem;
-        text-transform: none;
-        --padding-start: 1rem;
-        --padding-end: 1rem;
-        
-        &:hover {
-          --color: var(--ion-color-primary);
-        }
-      }
-    }
+    grid-template-columns: auto;
+    padding: 1rem;
+    background-color: transparent !important;
+    justify-content: flex-start;
   }
-  
-  .hero-container {
-    position: relative;
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1;
-    padding: 0 1rem;
-    
-    .logo {
-      max-width: 700px;
-      height: auto;
-      
-      @media (max-width: 768px) {
-        max-width: 90%; // Make logo responsive
-        margin: 0 auto;
-      }
-    }
-    
-      
-        
-      }
-   
-      .logomenu {
-        max-width: 150px;
-        height: auto;
-        
-        @media (max-width: 768px) {
-          max-width: 120px; // Slightly smaller logo on mobile
-        }
-      }
-  
-  // Add animations
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .nav-items {
+    justify-content: flex-start;
   }
-  
-  .main-title {
-    animation: fadeIn 1s ease-out;
+  .logo {
+    max-width: 90%;
+    margin: 0 auto;
   }
-  
-  .subtitle {
-    animation: fadeIn 1s ease-out 0.5s both;
+  ion-menu-button {
+    display: block;
   }
-  
-  .nav-button {
-
-    animation: fadeIn 0.5s ease-out;
-    animation-delay: calc(var(--index) * 0.1s);
-  }
-  
-  .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  
+ }

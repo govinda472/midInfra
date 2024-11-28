@@ -1,9 +1,8 @@
-<!-- home.page.html -->
-<ion-content [fullscreen]="true" >
- <app-landing></app-landing>
- <app-about></app-about>
- <app-aboutus2></app-aboutus2>
- <app-strategy></app-strategy>
- <app-teams></app-teams>
- <app-contact-us></app-contact-us>
-</ion-content>
+<ion-content>
+    <app-landing (scrollEvent)="scrollTo($event)"></app-landing>
+    <app-about></app-about>
+    <app-aboutus2></app-aboutus2>
+    <app-strategy></app-strategy>
+    <app-teams></app-teams>
+    <app-contact-us></app-contact-us>
+  </ion-content>
