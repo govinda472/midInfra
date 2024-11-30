@@ -31,6 +31,26 @@
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    .member-image {
+      transform: scale(1.05);
+    }
+
+    .arrow-button {
+      background: #6CA6CD;
+      transform: rotate(45deg);
+    }
+
+    .member-name {
+      color: #87CEEB;
+    }
+  }
 }
 
 .member-image {
@@ -39,6 +59,7 @@
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
 
 .member-info {
@@ -51,6 +72,7 @@
   font-size: 1.2rem;
   color: #333;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .member-title {
@@ -70,12 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.arrow-button:hover {
-  background: #6CA6CD;
+  transition: all 0.3s ease;
 }
 
 .arrow-icon {
@@ -83,40 +100,37 @@
   height: 50%;
 }
 
-
 /* Responsive design */
 @media (max-width: 1200px) {
   .team-grid {
-      grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .team-heading {
-      font-size: 3rem;
+    font-size: 3rem;
   }
 }
 
 @media (max-width: 900px) {
   .team-grid {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .team-heading {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 600px) {
   .team-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-
   .team-heading {
-      font-size: 2rem;
-      text-align: center;
+    font-size: 2rem;
+    text-align: center;
   }
-
   .team-content {
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 0;
-      padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

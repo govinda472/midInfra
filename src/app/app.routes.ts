@@ -10,7 +10,8 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./pages/home/home.page').then( m => m.HomePage)
-  },  {
+  },
+  {
     path: 'learnabout',
     loadComponent: () => import('./pages/learnabout/learnabout.page').then( m => m.LearnaboutPage)
   },
@@ -46,5 +47,12 @@ export const routes: Routes = [
     path: 'data-connectivity',
     loadComponent: () => import('./pages/data-connectivity/data-connectivity.page').then( m => m.DataConnectivityPage)
   },
-
+  {
+    path: 'rajgupta',
+    loadComponent: () => import('./pages/rajgupta/rajgupta.page').then(m => m.RajGuptaPage)  // Changed from RajguptaPage to RajGuptaPage
+  },
+  {
+    path: 'gilbert',
+    loadComponent: () => import('./pages/gilbert/gilbert.page').then(m => m.GilbertPage)
+  }
 ];
