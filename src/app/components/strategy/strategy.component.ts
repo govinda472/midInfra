@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';  // Added Router import
 import {
   IonContent,
   IonHeader,
@@ -11,6 +12,7 @@ import {
   IonAvatar,
   IonLabel,
   IonSkeletonText, IonPopover, IonItem, IonList, IonCol, IonRow, IonGrid, IonCard, IonCardContent, IonBadge } from '@ionic/angular/standalone';
+
 @Component({
   selector: 'app-strategy',
   templateUrl: './strategy.component.html',
@@ -51,8 +53,24 @@ export class StrategyComponent  implements OnInit {
       iconPath: '../../assets/rail.svg'
     }
   ];
-  constructor() { }
 
+  constructor(private router: Router) { }  // Added Router to constructor
+  
   ngOnInit() {}
 
+  navigateToIndustrialRail() {  // Added navigation method
+    this.router.navigate(['/industrial-rail']);
+  }
+  navigateToPorts() {
+    this.router.navigate(['/ports']);
+  }
+  navigateToRailParks() {
+    this.router.navigate(['/rail-parks']);
+  }
+  navigateToCommodity() {
+    this.router.navigate(['/commodity']);
+  }
+  navigateToData() {
+    this.router.navigate(['/data-connectivity']);
+  }
 }

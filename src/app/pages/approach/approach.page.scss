@@ -1,0 +1,122 @@
+.approach-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: white;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  
+  .text-section {
+    flex: 1;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    
+    @media (max-width: 768px) {
+      padding: 2rem;
+      order: 2;
+    }
+  }
+  
+  .category {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    color: #666;
+    text-transform: uppercase;
+  }
+  
+  .main-title {
+    font-size: 4rem;  // Increased from 2.5rem
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #000;
+   
+    @media (max-width: 768px) {
+      font-size: 3rem;  // Increased from 2rem for mobile
+    }
+  }
+  
+  .content-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    
+    p {
+      margin-bottom: 1.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  // ... rest of the CSS remains the same ...
+
+.image-section {
+    flex: 0.8;  // Reduced from 1
+    position: relative;
+    background-color: #f5f5f5;
+    width: 500px;  // Fixed width
+    height: 800px;  // Fixed height
+    margin: 4rem;  // Add margin from edges
+    align-self: center;  // Center vertically
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 400px;
+      order: 1;
+      margin: 1rem 0;
+    }
+  }
+  
+  .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  // ... rest of the CSS remains the same ...
+  
+  .close-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    
+    ion-button {
+      --background: rgba(0, 0, 0, 0.5);
+      --border-radius: 50%;
+      --padding-start: 8px;
+      --padding-end: 8px;
+      
+      &::part(native) {
+        padding: 8px;
+      }
+    }
+    
+    ion-icon {
+      color: white;
+      font-size: 24px;
+    }
+  }
+  
+  // Add smooth transitions
+  .text-section, .image-section {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  // Optional: Add hover effect on the close button
+  .close-button ion-button {
+      transition: transform 0.2s ease;
+      
+      &:hover {
+          transform: scale(1.1);
+      }
+  }

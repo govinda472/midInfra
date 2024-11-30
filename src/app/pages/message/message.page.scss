@@ -1,0 +1,97 @@
+.message-container {
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .message-content {
+    max-width: 800px;
+    padding: 4rem;
+    
+    @media (max-width: 768px) {
+      padding: 2rem;
+    }
+  }
+  
+  .subtitle {
+    display: block;
+    font-size: 1.1rem;  // Increased from 0.875rem
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #666;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+  
+  .founder-message {
+    .intro-text {
+      font-size: 2.25rem;  // Increased from 1.75rem
+      line-height: 1.4;
+      color: #000;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+  
+    .main-text {
+      font-size: 1.3rem;  // Increased from 1.1rem
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 2rem;
+      
+      &:last-of-type {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+  
+  .signature-section {
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+    margin-top: 4rem;
+    
+    .signature {
+      font-size: 1.5rem;  // Increased from 1.25rem
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+    .title {
+        font-size: 1.2rem;  // Increased from 1rem
+        color: #666;
+      }
+    }
+  
+  .close-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    
+    ion-button {
+      --background: rgba(0, 0, 0, 0.5);
+      --border-radius: 50%;
+      --padding-start: 8px;
+      --padding-end: 8px;
+      
+      &::part(native) {
+        padding: 8px;
+      }
+    }
+    
+    ion-icon {
+      color: white;
+      font-size: 24px;
+    }
+  }
+  
+  // Optional: Add hover effect on the close button
+  .close-button ion-button {
+      transition: transform 0.2s ease;
+      
+      &:hover {
+          transform: scale(1.1);
+      }
+  }
