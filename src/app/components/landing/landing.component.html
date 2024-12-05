@@ -34,8 +34,12 @@
       } @else {
         <ion-menu-button color="light" menu="main-menu"></ion-menu-button>
       }
+      <div class="nav-brand" [class.visible]="showLogo._showLogo">
+        <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="header-logo">
+      </div>
     </div>
   </div>
+  
   <div class="hero-container">
     <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
   </div>

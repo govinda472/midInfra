@@ -76,4 +76,6 @@ export class Aboutus2Component implements OnInit {
     this.aboutus2Service.toggleVisibility();
     this.router.navigate(['/approach']);
   }
+
+  
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, inject, ElementRef } from '@angular/core';
 import {
   IonButton,
   IonMenuButton,
@@ -10,6 +10,7 @@ import {
   IonList,
   IonItem } from '@ionic/angular/standalone';
 import { MenuController } from '@ionic/angular';
+import { ShowlogoService } from 'src/app/services/show/showlogo.service';
 
 @Component({
   selector: 'app-landing',
@@ -29,10 +30,14 @@ import { MenuController } from '@ionic/angular';
   ]  
 })
 export class LandingComponent implements OnInit {
+  showLogo = inject(ShowlogoService);
   menuItems = ['Home', 'About', 'Strategy', 'Team', 'Contact'];
   @Output() scrollEvent = new EventEmitter<string>();
   
-  constructor(private menuCtrl: MenuController) { }
+  constructor(
+    private menuCtrl: MenuController,
+    private elementRef: ElementRef
+  ) { }
   
   ngOnInit() {}
 
@@ -65,5 +70,26 @@ export class LandingComponent implements OnInit {
   
   isMobile() {
     return window.innerWidth <= 768;
+  }
+
+  ngAfterViewInit() {
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Check if element is 100% visible
+          if (entry.isIntersecting && entry.intersectionRatio === 1) {
+            this.showLogo.set_showLogo = false;
+          }
+        });
+      },
+      {
+        threshold: 1, // Triggers when 100% of component is visible
+        rootMargin: '0px'
+      }
+    );
+
+    // Start observing the component
+    observer.observe(this.elementRef.nativeElement);
   }
 }

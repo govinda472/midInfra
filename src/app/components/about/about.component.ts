@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import {
@@ -24,6 +24,7 @@ import {
   IonBadge
 } from '@ionic/angular/standalone';
 import { AboutService } from './about.service';
+import { ShowlogoService } from 'src/app/services/show/showlogo.service';
 
 @Component({
   selector: 'app-about',
@@ -53,11 +54,13 @@ import { AboutService } from './about.service';
     IonBadge
   ]
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, AfterViewInit {
+  showLogo = inject(ShowlogoService);
   constructor(
     private router: Router,
     private aboutService: AboutService,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    private elementRef: ElementRef
   ) { }
 
   ngOnInit() {
@@ -70,6 +73,28 @@ export class AboutComponent implements OnInit {
         sessionStorage.removeItem('scrollPosition');
       }, 0);
     }
+  }
+
+  ngAfterViewInit() {
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Check if element is more than 50% visible
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            console.log('hello');
+            this.showLogo.set_showLogo = true;
+          }
+        });
+      },
+      {
+        threshold: 0.7, // Triggers when 50% of the component is visible
+        rootMargin: '0px' // No margin adjustment
+      }
+    );
+
+    // Start observing the component
+    observer.observe(this.elementRef.nativeElement);
   }
 
   navigateToLearnAbout() {
