@@ -5,7 +5,7 @@
   gap: 15px;
   align-items: start;
   padding: 40px;
-  background-color: #007bc1;
+  background-color: #1f517a;
   color: #ffffff;
   width: 100vw;
   min-height: 100vh;
@@ -40,24 +40,24 @@
   grid-column: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 140px;
   position: relative;
   z-index: 1;
   @media (max-width: 1024px) {
     grid-column: 1;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 20px;
+    gap: 160px 120px;
   }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 50px;
-    max-width: 350px;
+    gap: 160px;
+    max-width: none;
     margin: 0 auto;
   }
 }
 
 .focus-box {
-  padding: 10px 8px;
+  padding: 20px 20px;
   position: relative;
   text-align: center;
   color: #ffffff;
@@ -71,9 +71,12 @@
   border-top: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  width: 420px;
+  height: 420px;
+  margin: 0 auto;
  
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-color: #ffffff;
     
@@ -106,33 +109,48 @@
 
 .icon {
   position: absolute;
-  top: -30px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #007bc1;
-  width: 80px;
-  height: 80px;
+  background-color: #1f517a;
+  width: 120px;
+  height: 120px;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  
   img {
-    width: 100%;
-    height: auto;
-    max-width: 60px;
+    width: 85px;
+    height: 85px;
+    object-fit: scale-down;
+    max-width: 85px;
+    max-height: 85px;
+    min-width: 85px;
+    min-height: 85px;
+
+    &[alt="Industrial Rail"],
+    &[alt="Rail-Integrated Industrial Parks"] {
+      width: 65px;
+      height: 65px;
+      max-width: 65px;
+      max-height: 65px;
+      min-width: 65px;
+      min-height: 65px;
+    }
   }
 }
 
 .title {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
   margin-top: 30px;
   line-height: 1.4;
   padding: 0 10px;
   transition: transform 0.3s ease;
   @media (max-width: 768px) {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 }
 
