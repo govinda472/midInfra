@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IonContent,
@@ -19,7 +19,8 @@ import { LandingComponent } from 'src/app/components/landing/landing.component';
 import { StrategyComponent } from "../../components/strategy/strategy.component";
 import { TeamsComponent } from "../../components/teams/teams.component";
 import { ContactUsComponent } from "../../components/contact-us/contact-us.component";
-
+import { NavigateService } from '../../services/navigate.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -57,8 +58,21 @@ import { ContactUsComponent } from "../../components/contact-us/contact-us.compo
 })
 export class HomePage {
   @ViewChild(IonContent) content!: IonContent;
-
+  private scrollSubscription!: Subscription;
+  navigateService = inject(NavigateService);
   constructor() {}
+
+  ngOnInit() {
+    this.scrollSubscription = this.navigateService.scrollEvent$.subscribe(elementId => {
+      this.scrollTo(elementId);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.scrollSubscription) {
+      this.scrollSubscription.unsubscribe();
+    }
+  }
 
   scrollTo(elementId: string) {
     if (elementId === 'home') {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -20,26 +20,30 @@ import {
   bookmarkSharp,
   closeOutline // Add this import
 } from 'ionicons/icons';
-
+import { Router } from '@angular/router';
+import { NavigateService } from './services/navigate.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterLink, IonRouterOutlet],
+  imports: [ CommonModule, IonApp, IonMenu, IonContent, IonList, IonMenuToggle, IonItem, IonLabel, IonRouterOutlet],
 })
 export class AppComponent {
+  @ViewChild(IonContent) content!: IonContent;
+  
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Home', url: '/', fragment: 'home' },
+    { title: 'About', url: '/', fragment: 'about' },
+    { title: 'Strategy', url: '/', fragment: 'strategy' },
+    { title: 'Team', url: '/', fragment: 'teams' },
+    { title: 'Contact', url: '/', fragment: 'contact-us' }
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  
-  constructor() {
+  navigateService = inject(NavigateService);
+  constructor(
+    private router: Router
+  ) {
     addIcons({ 
       mailOutline, 
       mailSharp, 
@@ -58,4 +62,20 @@ export class AppComponent {
       closeOutline // Add this to the addIcons call
     });
   }
+
+
+  scrollTo(elementId: string) {
+    if (this.router.url === '/') {
+      // If we're on home page, trigger the scroll
+      this.navigateService.triggerScroll(elementId);
+    } else {
+      // Navigate to home page first, then trigger scroll
+      this.router.navigate(['/']);
+      setTimeout(() => {
+        this.navigateService.triggerScroll(elementId);
+      }, 100);
+    }
+  }
+
+  
 }

@@ -1,20 +1,4 @@
-<!-- Side Menu -->
-<ion-menu side="start" menuId="main-menu" contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      @for (item of menuItems; track $index) {
-        <ion-item (click)="navigateTo(item)" button>
-          {{ item }}
-        </ion-item>
-      }
-    </ion-list>
-  </ion-content>
-</ion-menu>
+
 
 <!-- Main Content -->
 <div class="landing-page" id="main-content" (click)="closeMenu()">
@@ -32,7 +16,7 @@
           </ion-button>
         }
       } @else {
-        <ion-menu-button color="light" menu="main-menu"></ion-menu-button>
+        <ion-menu-button color="light"></ion-menu-button>
       }
       <div class="nav-brand" [class.visible]="showLogo._showLogo">
         <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="header-logo">
