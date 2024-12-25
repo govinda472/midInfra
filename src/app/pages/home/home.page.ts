@@ -80,7 +80,8 @@ export class HomePage {
     } else {
       const element = document.getElementById(elementId);
       if (element) {
-        this.content.scrollToPoint(0, element.offsetTop, 500);
+        const reducedOffset = element.offsetTop * 0.95;
+        this.content.scrollToPoint(0, reducedOffset, 500);
       }
     }
   }

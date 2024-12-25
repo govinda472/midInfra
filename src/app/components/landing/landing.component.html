@@ -1,8 +1,6 @@
-
-
 <!-- Main Content -->
 <div class="landing-page" id="main-content" (click)="closeMenu()">
-  <div class="nav-header">
+  <div class="nav-header" [class.visible]="showLogo._showLogo">
     <div class="nav-items">
       @if (!isMobile()) {
         @for (item of menuItems; track $index) {
@@ -18,13 +16,18 @@
       } @else {
         <ion-menu-button color="light"></ion-menu-button>
       }
-      <div class="nav-brand" [class.visible]="showLogo._showLogo">
-        <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="header-logo">
-      </div>
+    </div>
+    <div class="nav-brand" [class.scroll-active]="showLogo._showLogo">
+      <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="header-logo">
     </div>
   </div>
   
   <div class="hero-container">
     <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
+    <div class="scroll-arrow" (click)="scrollDown()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </div>

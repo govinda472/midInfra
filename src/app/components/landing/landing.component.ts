@@ -92,4 +92,10 @@ export class LandingComponent implements OnInit {
     // Start observing the component
     observer.observe(this.elementRef.nativeElement);
   }
+
+  scrollDown() {
+    console.log('scrollDown');
+    // Emit the scroll event to the parent
+    this.scrollEvent.emit('about'); // or whatever section comes after the landing
+  }
 }
