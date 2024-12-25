@@ -1,3 +1,400 @@
+.strategy-focus-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 15px;
+  align-items: start;
+  padding: 40px;
+  background-color: rgba(10, 19, 37, 0.9);
+  color: #ffffff;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+  @media (max-width: 1400px) {
+    padding: 30px;
+    gap: 10px;
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+}
+
+.strategy-title {
+  position: relative;
+  z-index: 1;
+  h1 {
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 1.2;
+    @media (max-width: 1024px) {
+      font-size: 3.5em;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 480px) {
+      font-size: 2.5em;
+    }
+  }
+}
+
+.focus-boxes {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 140px;
+  position: relative;
+  z-index: 1;
+  @media (max-width: 1400px) {
+    gap: 100px;
+  }
+  @media (max-width: 1024px) {
+    grid-column: 1;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 120px 60px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 120px 40px;
+    max-width: none;
+    margin: 0 auto;
+  }
+  @media (max-width: 480px) {
+    gap: 100px 20px;
+  }
+}
+
+.focus-box {
+  padding: 35px 20px 20px;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 2px solid #ffffff;
+  border-top: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 25px;
+ 
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: #ffffff;
+    
+    .title {
+      transform: translateY(-5px);
+    }
+    
+    .icon {
+      transform: translateX(-50%) scale(1.1);
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: calc(50% - 30px);
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+
+  @media (max-width: 1400px) {
+    max-width: 360px;
+  }
+  
+  @media (max-width: 1024px) {
+    max-width: 320px;
+  }
+  
+  @media (max-width: 768px) {
+    max-width: 280px;
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 100%;
+    padding: 15px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(10, 19, 37, 0.95);
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-top: -20px;
+  
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: scale-down;
+    max-width: 70px;
+    max-height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+
+    &[alt="Industrial Rail"],
+    &[alt="Rail-Integrated Industrial Parks"] {
+      width: 55px;
+      height: 55px;
+      max-width: 55px;
+      max-height: 55px;
+      min-width: 55px;
+      min-height: 55px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    
+    img {
+      width: 65px;
+      height: 65px;
+      max-width: 65px;
+      max-height: 65px;
+      min-width: 65px;
+      min-height: 65px;
+      
+      &[alt="Industrial Rail"],
+      &[alt="Rail-Integrated Industrial Parks"] {
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    
+    img {
+      width: 50px;
+      height: 50px;
+      max-width: 50px;
+      max-height: 50px;
+      min-width: 50px;
+      min-height: 50px;
+    }
+  }
+}
+
+.title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 30px;
+  line-height: 1.4;
+  padding: 0 10px;
+  transition: transform 0.3s ease;
+  @media (max-width: 1024px) {
+    font-size: 1em;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.9em;
+    margin-top: 20px;
+  }
+}
+
+.background-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.5;
+  transform: translateX(25%);
+  @media (max-width: 768px) {
+    width: 200%;
+    transform: translateX(15%);
+  }
+}
+
+/* Contact Page Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  min-height: 100%;
+}
+
+#contact-us {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-container {
+  padding: 2rem;
+  background-color: rgba(10, 19, 37, 0.9);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  min-height: auto;
+}
+
+.contact-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+  align-items: flex-start;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form {
+  background-color: rgba(10, 19, 37, 0.95);
+  padding: 1.5rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.contact-form h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(10, 19, 37, 0.95);
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #fff;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #fff;
+  color: rgba(10, 19, 37, 0.95);
+}
+
+.address-info {
+  background-color: rgba(10, 19, 37, 0.95);
+  padding: 1.5rem;
+  border-radius: 5px;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  border: 1px solid #fff;
+}
+
+.address-info h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.contact-details {
+  margin-top: 1rem;
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+}
+
+.contact-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact-image {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+}
+
+.contact-form form {
+  margin-bottom: 0;
+}
+
+/* Cards Styles */
 .cards-container {
   --ion-grid-column-padding: 20px;
   background: linear-gradient(to right, #FFFFFF 75%, #D9D9D9 75%);
@@ -15,7 +412,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;  // Added for better hover interactions
+  position: relative;
   @media (max-width: 768px) {
     margin: 15px 0;
   }
@@ -25,9 +422,9 @@
   width: 60%;
   height: 250px;
   object-fit: cover;
-  transition: all 0.3s ease;  // Changed to all for smoother transitions
+  transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  // Added subtle shadow
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   @media (max-width: 768px) {
     width: 80%;
     height: 200px;
@@ -38,29 +435,29 @@
   }
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  // Enhanced shadow on hover
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 }
 
 .card-footer {
-  background-color: #1f517a;
+  background-color: rgba(10, 19, 37, 0.9);
   padding: 10px 0;
   width: 60%;
   margin: 0 auto;
-  transition: all 0.3s ease;  // Changed to all for smoother transitions
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  overflow: hidden;  // For underline animation
+  overflow: hidden;
  
   &:hover {
     transform: translateY(-2px);
-    background-color: #0086dd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  // Added shadow on hover
+    background-color: rgba(10, 19, 37, 0.75);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
  
   &:active {
     transform: translateY(0);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);  // Reduced shadow on active
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
  
   @media (max-width: 768px) {
@@ -79,7 +476,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  z-index: 1;  // Ensures title stays above any effects
+  z-index: 1;
  
   &:hover {
     transform: translateY(-1px);
@@ -99,7 +496,7 @@
   height: 2px;
   background-color: white;
   margin: 5px auto 0 auto;
-  transition: all 0.3s ease;  // Changed to all for smoother transitions
+  transition: all 0.3s ease;
  
   .card-footer:hover & {
     width: 120px;

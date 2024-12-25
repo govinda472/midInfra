@@ -1,3 +1,4 @@
+/* Landing Page Styles */
 .landing-page {
   --background: none;
   background-image: url('../../../assets/Midinfralanding.jpg');
@@ -9,8 +10,12 @@
   height: 100%;
   margin: 0;
   padding: 0;
- }
- .landing-page::before {
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.landing-page::before {
   content: '';
   position: absolute;
   top: 0;
@@ -19,10 +24,22 @@
   bottom: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
   min-height: 100vh;
- }
- .nav-header {
+}
+
+/* Reset Ionic defaults */
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --offset-top: 0 !important;
+  --offset-bottom: 0;
+}
+
+.nav-header {
   position: fixed;
   top: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   align-items: center;
@@ -30,16 +47,17 @@
   z-index: 100;
   width: 100%;
   background-color: rgba(10, 19, 37, 0.9);
-
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+
   &.visible {
     opacity: 1;
     visibility: visible;
   }
- }
- .nav-brand {
+}
+
+.nav-brand {
   display: flex;
   align-items: center;
   position: absolute;
@@ -51,22 +69,22 @@
     left: 2rem;
     transform: translateX(0);
   }
- }
+}
 
- .header-logo {
+.header-logo {
   height: 40px;
   width: auto;
- }
+}
 
- .nav-items {
+.nav-items {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   grid-column: 2 / span 2;
- }
+}
 
- .nav-button {
+.nav-button {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: none;
@@ -76,9 +94,9 @@
   border-radius: 4px;
   position: relative;
   overflow: hidden;
- }
- 
- .nav-button::before {
+}
+
+.nav-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -89,17 +107,20 @@
   transform: translateY(100%);
   transition: transform 0.3s ease;
   border-radius: 4px;
- }
- .nav-button:hover::before {
+}
+
+.nav-button:hover::before {
   transform: translateY(0);
- }
- .nav-button span {
+}
+
+.nav-button span {
   color: white;
   transition: color 0.3s ease;
   position: relative;
   z-index: 1;
- }
- .hero-container {
+}
+
+.hero-container {
   position: relative;
   height: 100vh;
   display: flex;
@@ -110,22 +131,28 @@
   z-index: 1;
   padding: 0 1rem;
   overflow: hidden;
- }
- .logo {
+  margin: 0;
+}
+
+.logo {
   max-width: 700px;
   height: auto;
- }
- // Menu Styles
- ion-menu {
+}
+
+/* Menu Styles */
+ion-menu {
   --background: rgba(10, 19, 37, 0.95);
   --width: 250px;
+
   ion-toolbar {
     --background: rgba(10, 19, 37, 0.95);
     --color: white;
   }
+
   ion-list {
     background: transparent;
   }
+
   ion-item {
     --background: transparent;
     --color: white;
@@ -134,57 +161,21 @@
     margin: 8px 0;
     --padding-start: 20px;
     --min-height: 50px;
+
     &:hover {
       --background: rgba(255, 255, 255, 0.1);
     }
   }
- }
- ion-menu-button {
+}
+
+ion-menu-button {
   font-size: 24px;
   margin: 0;
   padding: 0;
   --color: white;
- }
- @media (max-width: 768px) {
-  .nav-header {
-    grid-template-columns: auto 1fr;
-    padding: 1rem;
-    background-color: transparent !important;
-  }
-  .nav-brand {
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 1s ease-in-out;
-    
-    &.scroll-active {
-      left: auto;
-      right: 1rem;
-      transform: translateX(0);
-    }
-  }
-  .header-logo {
-    height: 30px;
-  }
-  .nav-items {
-    justify-content: flex-start;
-  }
-  .logo {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  ion-menu-button {
-    display: block;
-  }
-  .scroll-arrow {
-    bottom: 30px;
-    
-    span {
-      width: 15px;
-      height: 15px;
-    }
-  }
- }
- .scroll-arrow {
+}
+
+.scroll-arrow {
   position: absolute;
   bottom: 50px;
   left: 50%;
@@ -222,5 +213,52 @@
   100% {
     opacity: 0;
     transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .nav-header {
+    grid-template-columns: auto 1fr;
+    padding: 1rem;
+    background-color: transparent !important;
+  }
+
+  .nav-brand {
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1s ease-in-out;
+    
+    &.scroll-active {
+      left: auto;
+      right: 1rem;
+      transform: translateX(0);
+    }
+  }
+
+  .header-logo {
+    height: 30px;
+  }
+
+  .nav-items {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  ion-menu-button {
+    display: block;
+  }
+
+  .scroll-arrow {
+    bottom: 30px;
+    
+    span {
+      width: 15px;
+      height: 15px;
+    }
   }
 }

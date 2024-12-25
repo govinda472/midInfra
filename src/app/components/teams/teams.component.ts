@@ -19,4 +19,12 @@ export class TeamsComponent implements OnInit {
   navigateToGilbert() {
     this.router.navigate(['/gilbert']);
   }
+  navigateToAlex() {
+    this.router.navigate(['/alex']);
+  }
+
+  navigateToBen() {
+    this.router.navigate(['/ben']);
+  }
 }
+
