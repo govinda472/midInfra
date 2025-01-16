@@ -88,12 +88,18 @@ body {
 .submit-button {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
-  background-color: #244775;
-  color: #333;
+  background-color: #2196F3;  /* Brighter blue */
+  color: #ffffff;  /* White text */
   font-weight: bold;
   border: none;
+  border-radius: 4px;  /* Added slight rounding */
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.3s ease;  /* Smooth hover transition */
+}
+
+.submit-button:hover {
+  background-color: #1976D2;  /* Slightly darker blue on hover */
 }
 
 .address-info {

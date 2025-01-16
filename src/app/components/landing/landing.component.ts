@@ -8,7 +8,8 @@ import {
   IonTitle,
   IonContent,
   IonList,
-  IonItem } from '@ionic/angular/standalone';
+  IonItem,
+  IonLabel } from '@ionic/angular/standalone';
 import { MenuController } from '@ionic/angular';
 import { ShowlogoService } from 'src/app/services/show/showlogo.service';
 
@@ -26,25 +27,28 @@ import { ShowlogoService } from 'src/app/services/show/showlogo.service';
     IonTitle,
     IonContent,
     IonList,
-    IonItem
-  ]  
+    IonItem,
+    IonLabel
+  ]
 })
 export class LandingComponent implements OnInit {
   showLogo = inject(ShowlogoService);
   menuItems = ['Home', 'About', 'Strategy', 'Team', 'Contact'];
   @Output() scrollEvent = new EventEmitter<string>();
-  
+ 
   constructor(
     private menuCtrl: MenuController,
     private elementRef: ElementRef
   ) { }
-  
-  ngOnInit() {}
+ 
+  ngOnInit() {
+    this.menuCtrl.enable(true);
+  }
 
   async closeMenu() {
-    await this.menuCtrl.close('main-menu');
+    await this.menuCtrl.close();
   }
-  
+ 
   async navigateTo(item: string) {
     let elementId = '';
     switch(item.toLowerCase()) {
@@ -64,38 +68,61 @@ export class LandingComponent implements OnInit {
         elementId = 'contact-us';
         break;
     }
-    this.scrollEvent.emit(elementId);
+
+    if (this.isMobile()) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        const extraScroll = {
+          'home': 0,
+          'about': 2000,
+          'strategy': 2000,
+          'teams': 2000,
+          'contact-us': 2000
+        }[elementId] || 0;
+
+        const offset = element.offsetTop + extraScroll;
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      this.scrollEvent.emit(elementId);
+    }
+    
     this.closeMenu();
   }
-  
+ 
   isMobile() {
     return window.innerWidth <= 768;
   }
 
   ngAfterViewInit() {
-    // Create an Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          // Check if element is 100% visible
           if (entry.isIntersecting && entry.intersectionRatio === 1) {
             this.showLogo.set_showLogo = false;
           }
         });
       },
       {
-        threshold: 1, // Triggers when 100% of component is visible
+        threshold: 1,
         rootMargin: '0px'
       }
     );
-
-    // Start observing the component
     observer.observe(this.elementRef.nativeElement);
   }
 
   scrollDown() {
-    console.log('scrollDown');
-    // Emit the scroll event to the parent
-    this.scrollEvent.emit('about'); // or whatever section comes after the landing
+    const aboutSection = document.getElementById('about');
+    if (aboutSection && this.isMobile()) {
+      const offset = aboutSection.offsetTop + 2000;
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+      });
+    }
+    this.scrollEvent.emit('about');
   }
 }
