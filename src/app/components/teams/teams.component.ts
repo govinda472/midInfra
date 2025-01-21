@@ -13,18 +13,18 @@ export class TeamsComponent implements OnInit {
   ngOnInit() {}
 
   navigateToRajGupta() {
-    this.router.navigate(['/rajgupta']);
+    this.router.navigate(['/rgupta']);
   }
 
   navigateToGilbert() {
-    this.router.navigate(['/gilbert']);
+    this.router.navigate(['/glamphere']);
   }
   navigateToAlex() {
-    this.router.navigate(['/alex']);
+    this.router.navigate(['/aweinstein']);
   }
 
   navigateToBen() {
-    this.router.navigate(['/ben']);
+    this.router.navigate(['/bsamuels']);
   }
 }
 

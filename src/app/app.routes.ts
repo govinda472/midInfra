@@ -48,19 +48,19 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/data-connectivity/data-connectivity.page').then( m => m.DataConnectivityPage)
   },
   {
-    path: 'rajgupta',
+    path: 'rgupta',
     loadComponent: () => import('./pages/rajgupta/rajgupta.page').then(m => m.RajGuptaPage)  // Changed from RajguptaPage to RajGuptaPage
   },
   {
-    path: 'gilbert',
+    path: 'glamphere',
     loadComponent: () => import('./pages/gilbert/gilbert.page').then(m => m.GilbertPage)
   },
   {
-    path: 'alex',
+    path: 'aweinstein',
     loadComponent: () => import('./pages/alex/alex.page').then( m => m.AlexPage)
   },
   {
-    path: 'ben',
+    path: 'bsamuels',
     loadComponent: () => import('./pages/ben/ben.page').then( m => m.BenPage)
   }
 ];
