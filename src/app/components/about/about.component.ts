@@ -103,6 +103,6 @@ export class AboutComponent implements OnInit, AfterViewInit {
     sessionStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     
     this.aboutService.toggleVisibility();
-    this.router.navigate(['/learnabout']);
+    this.router.navigate(['/learnmore']);
   }
 }

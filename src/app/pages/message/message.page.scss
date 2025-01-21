@@ -74,32 +74,42 @@
 
 .close-button {
   position: fixed;
-  top: 20px;  // Increased from 10px
-  right: 20px;  // Increased from 10px
+  top: 20px;
+  right: 20px;
   z-index: 1000;
  
   ion-button {
-    --background: rgba(0, 0, 0, 0.5);
+    --background: rgba(51, 51, 51, 0.8);
     --border-radius: 50%;
-    --padding-start: 12px;  // Increased padding
-    --padding-end: 12px;
-   
+    width: 40px;  // Fixed width
+    height: 40px; // Fixed height
+    --padding-start: 0;  // Remove default padding
+    --padding-end: 0;    // Remove default padding
+    
     &::part(native) {
-      padding: 12px;
+      width: 40px;      // Match button width
+      height: 40px;     // Match button height
+      padding: 0;       // Remove padding
+      display: flex;    // For centering
+      align-items: center;
+      justify-content: center;
     }
   }
  
   ion-icon {
     color: white;
-    font-size: 24px;
+    font-size: 20px;
+    width: 20px;     // Fixed width for icon
+    height: 20px;    // Fixed height for icon
   }
 }
 
 .close-button ion-button {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.3s ease;
  
   &:hover {
-      transform: scale(1.1);
+    transform: scale(1.1);
+    --background: rgba(51, 51, 51, 1);
   }
 }
 

@@ -282,9 +282,18 @@ ion-menu-button {
   }
   
   ion-menu-button {
-    --padding-start: 0;
-    --padding-end: 0;
-    margin-left: 0;
+    font-size: 28px;
+    margin: 0;
+    padding: 8px;
+    --color: white;
+    // Changed background color and opacity
+    --background: rgba(10, 19, 37, 0.8); // You can adjust the last number (0.8) for transparency
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      --background: rgba(10, 19, 37, 0.9); // Darker on hover
+    }
   }
   
   .scroll-arrow {
