@@ -3,34 +3,34 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 #contact-us {
-  margin-bottom: 0;
-  padding-bottom: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-container {
+  flex: 1;
   padding: 2rem;
   background-color: #081825;
   color: #fff;
   display: flex;
   justify-content: center;
-  margin-bottom: 0;
-  min-height: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .contact-wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   padding: 0 2rem;
-  align-items: flex-start;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  align-items: center;
 }
 
 .contact-heading {
@@ -85,21 +85,27 @@ body {
   font-size: 1rem;
 }
 
+.form-group textarea {
+  min-height: 100px;
+}
+
 .submit-button {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
-  background-color: #2196F3;  /* Brighter blue */
-  color: #ffffff;  /* White text */
+  background-color: #2196F3;
+  color: #ffffff;
   font-weight: bold;
   border: none;
-  border-radius: 4px;  /* Added slight rounding */
+  border-radius: 4px;
   cursor: pointer;
   width: 100%;
-  transition: background-color 0.3s ease;  /* Smooth hover transition */
+  transition: all 0.3s ease;
 }
 
 .submit-button:hover {
-  background-color: #1976D2;  /* Slightly darker blue on hover */
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.2);
 }
 
 .address-info {
@@ -114,6 +120,7 @@ body {
 .address-info h3 {
   margin-top: 0;
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact-details {
@@ -122,6 +129,7 @@ body {
 
 .contact-details p {
   margin: 0.5rem 0;
+  line-height: 1.5;
 }
 
 .contact-right {
@@ -141,10 +149,13 @@ body {
   width: 100%;
   max-width: 600px;
   border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form form {
-  margin-bottom: 0;
+@media (max-width: 1200px) {
+  .contact-wrapper {
+    max-width: 1000px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -152,7 +163,7 @@ body {
     flex-direction: column;
     padding: 0 1rem;
   }
-  
+
   .contact-left,
   .contact-right {
     max-width: 100%;
@@ -163,7 +174,7 @@ body {
   .contact-heading {
     font-size: 2rem;
   }
-  
+
   .contact-form h3 {
     font-size: 1.25rem;
   }

@@ -1,52 +1,59 @@
 .team-container {
-  padding: 2rem;
+  padding: 4rem 3rem;
   background-color: #D9D9D9;
   font-family: Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .team-content {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .team-heading {
-  font-size: 100px;
+  font-size: 7rem;
   font-weight: bold;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
   color: #333;
   text-align: left;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
+  padding: 2rem 0;
+  justify-items: center;
 }
 
 .team-member {
   background: white;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  width: 280px; // Reduced from 360px
+  height: 380px; // Reduced proportionally
+  
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    
     .member-image {
       transform: scale(1.05);
     }
-
+    
     .arrow-button {
       background: #6CA6CD;
       transform: rotate(45deg);
     }
-
+    
     .member-name {
       color: #87CEEB;
     }
@@ -55,21 +62,25 @@
 
 .member-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1;
+  height: 280px; // Reduced to match width
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
 
 .member-info {
-  padding: 1rem;
+  padding: 1.25rem;
   text-align: left;
+  height: 100px; // Reduced proportionally
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .member-name {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem; // Reduced from 1.6rem
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -78,17 +89,17 @@
 .member-title {
   margin: 0.5rem 0 0;
   color: #666;
-  font-size: 1rem;
+  font-size: 1rem; // Reduced from 1.2rem
 }
 
 .arrow-button {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
   background: #87CEEB;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px; // Reduced from 40px
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,36 +112,99 @@
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
+@media (max-width: 1800px) {
+  .team-heading {
+    font-size: 6rem;
+  }
+  
+  .team-content {
+    max-width: 1600px;
+  }
+}
+
+@media (max-width: 1400px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  
   .team-heading {
-    font-size: 3rem;
+    font-size: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .team-member {
+    width: 280px; // Maintain consistent width
+    height: 380px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+  
+  .team-heading {
+    font-size: 4rem;
+  }
+  
+  .team-member {
+    width: 260px; // Slightly smaller
+    height: 353px;
+    
+    .member-image {
+      height: 260px;
+    }
+    
+    .member-info {
+      height: 93px;
+    }
   }
 }
 
 @media (max-width: 900px) {
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
+  
   .team-heading {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+  
+  .team-container {
+    padding: 3rem 2rem;
+  }
+  
+  .team-member {
+    width: 260px;
+    height: 353px;
   }
 }
 
 @media (max-width: 600px) {
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
+  
   .team-heading {
-    font-size: 2rem;
+    font-size: 2.8rem;
     text-align: center;
+    margin-bottom: 3rem;
   }
+  
   .team-content {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 1rem;
+  }
+  
+  .team-container {
+    padding: 2rem 1rem;
+  }
+  
+  .team-member {
+    width: 260px;
+    height: 353px;
   }
 }
