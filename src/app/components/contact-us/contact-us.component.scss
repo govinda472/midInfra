@@ -179,3 +179,30 @@ body {
     font-size: 1.25rem;
   }
 }
+
+.minimal-footer {
+  background: rgba(10, 19, 37, 0.9);
+  padding: 0.3rem 1rem;
+  
+  .footer-content {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    align-items: center;
+    
+    .footer-btn {
+      --color: #fff;
+      font-size: 11px;
+      text-transform: none;
+      --padding-start: 6px;
+      --padding-end: 6px;
+      height: 28px;
+      margin: 0;
+      opacity: 0.85;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

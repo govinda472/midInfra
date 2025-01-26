@@ -63,4 +63,18 @@ export const routes: Routes = [
     path: 'bsamuels',
     loadComponent: () => import('./pages/ben/ben.page').then( m => m.BenPage)
   }
+
+  ,{
+    path: 'legal',
+    loadComponent: () => import('./pages/legal/legal.page').then(m => m.LegalPage)
+  },
+  {
+    path: 'privacy',
+    loadComponent: () => import('./pages/privacy/privacy.page').then(m => m.PrivacyPage)
+  },
+  {
+    path: 'terms',
+    loadComponent: () => import('./pages/terms/terms.page').then(m => m.TermsPage)
+  }
 ];
+ 
