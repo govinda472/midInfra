@@ -9,32 +9,32 @@
   @media (max-width: 768px) {
     flex-direction: column;
   }
-}
-
-.text-section {
+ }
+ 
+ .text-section {
   flex: 0 0 35%;
   padding: 4rem 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+ 
   @media (max-width: 768px) {
     padding: 2rem;
     order: 2;
     flex: 0 0 auto;
   }
-}
-
-.category {
+ }
+ 
+ .category {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
   color: #666;
   text-transform: uppercase;
-}
-
-.main-title {
+ }
+ 
+ .main-title {
   font-size: 3rem;
   font-weight: 500;
   line-height: 1.2;
@@ -45,9 +45,9 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-}
-
-.content-text {
+ }
+ 
+ .content-text {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #333;
@@ -59,9 +59,9 @@
       margin-bottom: 0;
     }
   }
-}
-
-.image-section {
+ }
+ 
+ .image-section {
   flex: 0 0 65%;
   position: relative;
   background-color: #f5f5f5;
@@ -77,15 +77,15 @@
     margin: 0;
     max-height: 400px;
   }
-}
-
-.feature-image {
+ }
+ 
+ .feature-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.close-button {
+ }
+ 
+ .close-button {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -94,40 +94,23 @@
   ion-button {
     --background: rgba(51, 51, 51, 0.8);
     --border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    --padding-start: 0;
-    --padding-end: 0;
+    --padding-start: 12px;
+    --padding-end: 12px;
    
     &::part(native) {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 12px;
+    }
+    &:hover {
+      --background: rgba(51, 51, 51, 1);
     }
   }
  
   ion-icon {
     color: white;
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
+    font-size: 24px;
   }
-}
-
-// Transitions
-.text-section, .image-section {
-  transition: all 0.3s ease-in-out;
-}
-
-// Close button hover effect
-.close-button ion-button {
-  transition: transform 0.2s ease, background 0.3s ease;
+ }
  
-  &:hover {
-    transform: scale(1.1);
-    --background: rgba(51, 51, 51, 1);
-  }
-}
+ .text-section, .image-section {
+  transition: all 0.3s ease-in-out;
+ }

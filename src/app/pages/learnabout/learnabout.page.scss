@@ -3,13 +3,12 @@
   flex-direction: row;
   min-height: 100vh;
   background-color: #ffffff;
-
   @media (max-width: 768px) {
     flex-direction: column;
   }
-}
-
-.close-button {
+ }
+ 
+ .close-button {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -18,29 +17,24 @@
   ion-button {
     --background: rgba(51, 51, 51, 0.8);
     --border-radius: 50%;
-    width: 40px;  // Fixed width
-    height: 40px; // Fixed height
-    --padding-start: 0;  // Remove default padding
-    --padding-end: 0;    // Remove default padding
-    
+    --padding-start: 12px;
+    --padding-end: 12px;
+   
     &::part(native) {
-      width: 40px;      // Match button width
-      height: 40px;     // Match button height
-      padding: 0;       // Remove padding
-      display: flex;    // For centering
-      align-items: center;
-      justify-content: center;
+      padding: 12px;
+    }
+    &:hover {
+      --background: rgba(51, 51, 51, 1);
     }
   }
  
   ion-icon {
     color: white;
-    font-size: 20px;
-    width: 20px;     // Fixed width for icon
-    height: 20px;    // Fixed height for icon
+    font-size: 24px;
   }
-}
-.image-section {
+ }
+ 
+ .image-section {
   flex: 1.6;
   position: relative;
   overflow: hidden;
@@ -48,16 +42,16 @@
   @media (max-width: 768px) {
     height: 450px;
   }
-}
-
-.feature-image {
+ }
+ 
+ .feature-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: contrast(1.1);
-}
-
-.text-section {
+ }
+ 
+ .text-section {
   flex: 1;
   padding: 5rem;
   display: flex;
@@ -66,27 +60,26 @@
   background-color: #ffffff;
   color: #333333;
   position: relative;
-
   @media (max-width: 768px) {
     padding: 3rem;
   }
-}
-
-.title {
+ }
+ 
+ .title {
   font-family: 'Georgia', serif;
   font-size: 2.8rem;
   margin-bottom: 2.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #111111;
-  
+ 
   @media (max-width: 768px) {
     font-size: 2.2rem;
     margin-bottom: 2rem;
   }
-}
-
-.content-text {
+ }
+ 
+ .content-text {
   font-size: 1.1rem;
   line-height: 1.7;
   font-family: 'system-ui', -apple-system, sans-serif;
@@ -102,26 +95,17 @@
       color: #222222;
     }
   }
-  
+ 
   @media (max-width: 768px) {
     font-size: 1rem;
-    
+   
     p:last-child {
       font-size: 1.1rem;
     }
   }
-}
-
-.text-section, 
-.image-section {
-  transition: all 0.4s ease-in-out;
-}
-
-.close-button ion-button {
-  transition: transform 0.2s ease, background 0.3s ease;
+ }
  
-  &:hover {
-    transform: scale(1.1);
-    --background: rgba(51, 51, 51, 1);
-  }
-}
+ .text-section,
+ .image-section {
+  transition: all 0.4s ease-in-out;
+ }
