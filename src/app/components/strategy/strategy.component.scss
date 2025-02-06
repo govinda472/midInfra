@@ -233,10 +233,16 @@
   width: 200%;
   height: 100%;
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.8;
   transform: translateX(20%);
-  @media (max-width: 768px) {
-    width: 250%;
-    transform: translateX(10%);
+  
+  @media (max-width: 1024px) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+  }
+  
+  @media (max-width: 480px) {
+    width: 200%;
   }
 }
