@@ -242,7 +242,8 @@
     width: 150%;
   }
   
-  @media (max-width: 480px) {
-    width: 200%;
+  // Hide background SVG on mobile devices
+  @media (max-width: 768px) {
+    display: none;
   }
 }
