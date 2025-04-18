@@ -80,8 +80,12 @@ export class HomePage {
     } else {
       const element = document.getElementById(elementId);
       if (element) {
-        const reducedOffset = element.offsetTop * 0.97;
-        this.content.scrollToPoint(0, reducedOffset, 500);
+        if (elementId === 'teams' || elementId === 'contact-us') {
+          this.content.scrollToPoint(0, element.offsetTop, 500);
+        } else {
+          const reducedOffset = element.offsetTop * 0.97;
+          this.content.scrollToPoint(0, reducedOffset, 500);
+        }
       }
     }
   }

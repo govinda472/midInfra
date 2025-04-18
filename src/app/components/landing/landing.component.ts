@@ -72,19 +72,24 @@ export class LandingComponent implements OnInit {
     if (this.isMobile()) {
       const element = document.getElementById(elementId);
       if (element) {
-        const extraScroll = {
-          'home': 0,
-          'about': 2000,
-          'strategy': 2000,
-          'teams': 2000,
-          'contact-us': 2000
-        }[elementId] || 0;
+        if (elementId === 'teams' || elementId === 'contact-us') {
+          window.scrollTo({
+            top: element.offsetTop,
+            behavior: 'smooth'
+          });
+        } else {
+          const extraScroll = {
+            'home': 0,
+            'about': 100,
+            'strategy': 100
+          }[elementId] || 0;
 
-        const offset = element.offsetTop + extraScroll;
-        window.scrollTo({
-          top: offset,
-          behavior: 'smooth'
-        });
+          const offset = element.offsetTop + extraScroll;
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+        }
       }
     } else {
       this.scrollEvent.emit(elementId);
@@ -117,7 +122,7 @@ export class LandingComponent implements OnInit {
   scrollDown() {
     const aboutSection = document.getElementById('about');
     if (aboutSection && this.isMobile()) {
-      const offset = aboutSection.offsetTop + 2000;
+      const offset = aboutSection.offsetTop + 100;
       window.scrollTo({
         top: offset,
         behavior: 'smooth'
