@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, inject, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, inject, ElementRef, HostListener } from '@angular/core';
 import {
   IonButton,
   IonMenuButton,
@@ -9,9 +9,11 @@ import {
   IonContent,
   IonList,
   IonItem,
-  IonLabel } from '@ionic/angular/standalone';
+  IonLabel,
+  IonFooter } from '@ionic/angular/standalone';
 import { MenuController } from '@ionic/angular';
 import { ShowlogoService } from 'src/app/services/show/showlogo.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -28,18 +30,28 @@ import { ShowlogoService } from 'src/app/services/show/showlogo.service';
     IonContent,
     IonList,
     IonItem,
-    IonLabel
+    IonLabel,
+    IonFooter,
+    RouterModule
   ]
 })
 export class LandingComponent implements OnInit {
   showLogo = inject(ShowlogoService);
   menuItems = ['Home', 'About', 'Strategy', 'Team', 'Contact'];
   @Output() scrollEvent = new EventEmitter<string>();
+  showFooter = false;
  
   constructor(
     private menuCtrl: MenuController,
     private elementRef: ElementRef
   ) { }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (this.showFooter) {
+      this.showFooter = false;
+    }
+  }
  
   ngOnInit() {
     this.menuCtrl.enable(true);
@@ -120,6 +132,7 @@ export class LandingComponent implements OnInit {
   }
 
   scrollDown() {
+    this.showFooter = true;
     const aboutSection = document.getElementById('about');
     if (aboutSection && this.isMobile()) {
       const offset = aboutSection.offsetTop + 100;
