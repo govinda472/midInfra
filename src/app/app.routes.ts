@@ -62,9 +62,12 @@ export const routes: Routes = [
   {
     path: 'bsamuels',
     loadComponent: () => import('./pages/ben/ben.page').then( m => m.BenPage)
-  }
-
-  ,{
+  },
+  {
+    path: 'rworkman',
+    loadComponent: () => import('./pages/rodney/rodney.page').then( m => m.RodneyPage)
+  },
+  {
     path: 'legal',
     loadComponent: () => import('./pages/legal/legal.page').then(m => m.LegalPage)
   },
