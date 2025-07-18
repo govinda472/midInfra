@@ -9,9 +9,9 @@
   height: 100%;
   margin: 0;
   padding: 0;
- }
- 
- .landing-page::before {
+}
+
+.landing-page::before {
   content: '';
   position: absolute;
   top: 0;
@@ -20,9 +20,9 @@
   bottom: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
   min-height: 100vh;
- }
- 
- .nav-header {
+}
+
+.nav-header {
   position: fixed;
   top: 0;
   display: grid;
@@ -32,7 +32,7 @@
   z-index: 100;
   width: 100%;
   background-color: rgb(10, 19, 37);
- 
+
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -40,41 +40,41 @@
     opacity: 1;
     visibility: visible;
   }
- }
- 
- .nav-brand {
+}
+
+.nav-brand {
   display: flex;
   align-items: center;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   transition: all 1s ease-in-out;
- 
+
   &.scroll-active {
     left: 2rem;
     transform: translateX(0);
   }
- }
- 
- .header-logo {
+}
+
+.header-logo {
   height: 40px;
   width: auto;
- }
- 
- .nav-items {
+}
+
+.nav-items {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   grid-column: 2 / span 2;
- 
+
   &.desktop-items {
     display: flex;
     justify-content: flex-end;
   }
- }
- 
- .nav-button {
+}
+
+.nav-button {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: none;
@@ -84,9 +84,9 @@
   border-radius: 4px;
   position: relative;
   overflow: hidden;
- }
- 
- .nav-button::before {
+}
+
+.nav-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -97,20 +97,20 @@
   transform: translateY(100%);
   transition: transform 0.3s ease;
   border-radius: 4px;
- }
- 
- .nav-button:hover::before {
+}
+
+.nav-button:hover::before {
   transform: translateY(0);
- }
- 
- .nav-button span {
+}
+
+.nav-button span {
   color: white;
   transition: color 0.3s ease;
   position: relative;
   z-index: 1;
- }
- 
- .hero-container {
+}
+
+.hero-container {
   position: relative;
   height: 100vh;
   display: flex;
@@ -121,15 +121,32 @@
   z-index: 1;
   padding: 0 1rem;
   overflow: hidden;
- }
- 
- .logo {
+}
+
+.logo {
   max-width: 700px;
   height: auto;
   z-index: 2;
- }
- 
- ion-menu {
+}
+
+.splash-text {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  padding: 0 2rem;
+  text-align: center;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  position: relative;
+}
+
+ion-menu {
   --background: rgb(10, 19, 37);
   --width: 300px;
   
@@ -139,7 +156,7 @@
     --padding-top: 2rem;
     --padding-bottom: 2rem;
     --border-color: rgba(255, 255, 255, 0.1);
- 
+
     ion-title {
       font-size: 1.5rem;
       font-weight: 600;
@@ -166,7 +183,7 @@
     &:hover {
       --background: rgba(255, 255, 255, 0.1);
     }
- 
+
     &::before {
       content: '';
       position: absolute;
@@ -176,14 +193,14 @@
       background-color: #2196F3;
       transition: height 0.3s ease;
     }
- 
+
     &:hover::before {
       height: 100%;
     }
   }
- }
- 
- ion-menu-button {
+}
+
+ion-menu-button {
   font-size: 28px;
   margin: 0;
   padding: 8px;
@@ -191,13 +208,13 @@
   --background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   transition: background-color 0.3s ease;
- 
+
   &:hover {
     --background: rgba(255, 255, 255, 0.2);
   }
- }
- 
- .scroll-arrow {
+}
+
+.scroll-arrow {
   position: absolute;
   bottom: 200px;
   left: 50%;
@@ -223,9 +240,9 @@
       animation-delay: -0.4s;
     }
   }
- }
- 
- @keyframes animate {
+}
+
+@keyframes animate {
   0% {
     opacity: 0;
     transform: rotate(45deg) translate(-20px, -20px);
@@ -237,9 +254,9 @@
     opacity: 0;
     transform: rotate(45deg) translate(20px, 20px);
   }
- }
- 
- @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
   .nav-items {
     justify-content: flex-start;
     position: fixed;
@@ -252,7 +269,7 @@
       display: none;
     }
   }
- 
+
   .nav-header {
     grid-template-columns: auto 1fr;
     padding: 1rem;
@@ -279,6 +296,15 @@
     max-width: 90%;
     margin: 0 auto;
   }
+
+  .splash-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem;
+    max-width: 90%;
+  }
   
   ion-menu-button {
     font-size: 28px;
@@ -295,7 +321,7 @@
   }
   
   .scroll-arrow {
-    bottom: 80px;
+    bottom: 60px;
     z-index: 0;
     
     span {
@@ -306,7 +332,15 @@
       margin: -8px;
     }
   }
- }
+}
+
+@media (max-width: 480px) {
+  .splash-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+}
 
 ion-footer {
   position: fixed;
