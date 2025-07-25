@@ -1,0 +1,15 @@
+#about,
+#strategy,
+#teams,
+#contact-us {
+  scroll-margin-top: 56px; /* Adjust to your header height */
+}
+
+@media (max-width: 600px) {
+  #about,
+  #strategy,
+  #teams,
+  #contact-us {
+    scroll-margin-top: 40px; /* Adjust for mobile header height */
+  }
+} 

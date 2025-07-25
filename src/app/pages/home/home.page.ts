@@ -76,34 +76,10 @@ export class HomePage {
 
   scrollTo(elementId: string) {
     setTimeout(() => {
-      if (elementId === 'home') {
-        this.content.scrollToTop(500);
-      } else {
-        const element = document.getElementById(elementId);
-        if (element) {
-          const header = document.querySelector('.nav-header');
-          let headerHeight = 0;
-          if (header) {
-            const style = window.getComputedStyle(header);
-            if (style.position === 'fixed' || style.position === 'sticky') {
-              headerHeight = header.clientHeight;
-            }
-          }
-          this.content.getScrollElement().then(scrollEl => {
-            const rect = element.getBoundingClientRect();
-            const scrollRect = scrollEl.getBoundingClientRect();
-            let offset = rect.top - scrollRect.top + scrollEl.scrollTop - headerHeight;
-            // iOS-specific tweak
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(typeof (window as any).MSStream !== 'undefined');
-            if (isIOS) {
-              offset = offset - 20; // tweak as needed
-            }
-            if (offset < 0) offset = 0;
-            console.log('elementId:', elementId, 'headerHeight:', headerHeight, 'offset:', offset, 'isIOS:', isIOS);
-            this.content.scrollToPoint(0, offset, 500);
-          });
-        }
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 700);
+    }, 300);
   }
 }
