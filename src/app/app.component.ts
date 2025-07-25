@@ -65,16 +65,7 @@ export class AppComponent {
 
 
   scrollTo(elementId: string) {
-    if (this.router.url === '/') {
-      // If we're on home page, trigger the scroll
-      this.navigateService.triggerScroll(elementId);
-    } else {
-      // Navigate to home page first, then trigger scroll
-      this.router.navigate(['/']);
-      setTimeout(() => {
-        this.navigateService.triggerScroll(elementId);
-      }, 100);
-    }
+    this.navigateService.triggerScroll(elementId);
   }
 
   

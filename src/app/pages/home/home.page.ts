@@ -75,18 +75,29 @@ export class HomePage {
   }
 
   scrollTo(elementId: string) {
-    if (elementId === 'home') {
-      this.content.scrollToTop(500);
-    } else {
-      const element = document.getElementById(elementId);
-      if (element) {
-        if (elementId === 'teams' || elementId === 'contact-us') {
-          this.content.scrollToPoint(0, element.offsetTop, 500);
-        } else {
-          const reducedOffset = element.offsetTop * 0.97;
-          this.content.scrollToPoint(0, reducedOffset, 500);
+    setTimeout(() => {
+      if (elementId === 'home') {
+        this.content.scrollToTop(500);
+      } else {
+        const element = document.getElementById(elementId);
+        if (element) {
+          const header = document.querySelector('.nav-header');
+          let headerHeight = 0;
+          if (header) {
+            const style = window.getComputedStyle(header);
+            if (style.position === 'fixed' || style.position === 'sticky') {
+              headerHeight = header.clientHeight;
+            }
+          }
+          this.content.getScrollElement().then(scrollEl => {
+            const rect = element.getBoundingClientRect();
+            const scrollRect = scrollEl.getBoundingClientRect();
+            let offset = rect.top - scrollRect.top + scrollEl.scrollTop - headerHeight;
+            if (offset < 0) offset = 0;
+            this.content.scrollToPoint(0, offset, 500);
+          });
         }
       }
-    }
+    }, 200);
   }
 }

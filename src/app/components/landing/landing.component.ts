@@ -62,6 +62,7 @@ export class LandingComponent implements OnInit {
   }
  
   async navigateTo(item: string) {
+    console.log('LANDING navigateTo', item);
     let elementId = '';
     switch(item.toLowerCase()) {
       case 'home':
@@ -84,24 +85,23 @@ export class LandingComponent implements OnInit {
     if (this.isMobile()) {
       const element = document.getElementById(elementId);
       if (element) {
-        if (elementId === 'teams' || elementId === 'contact-us') {
-          window.scrollTo({
-            top: element.offsetTop,
-            behavior: 'smooth'
-          });
-        } else {
-          const extraScroll = {
-            'home': 0,
-            'about': 100,
-            'strategy': 100
-          }[elementId] || 0;
-
-          const offset = element.offsetTop + extraScroll;
-          window.scrollTo({
-            top: offset,
-            behavior: 'smooth'
-          });
+        const header = document.querySelector('.nav-header');
+        let headerHeight = 0;
+        let headerPos = '';
+        if (header) {
+          const style = window.getComputedStyle(header);
+          headerPos = style.position;
+          if (style.position === 'fixed' || style.position === 'sticky') {
+            headerHeight = header.clientHeight;
+          }
         }
+        console.log('Header height:', headerHeight, 'Header position:', headerPos);
+        let offset = element.offsetTop - headerHeight;
+        if (offset < 0) offset = 0;
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth'
+        });
       }
     } else {
       this.scrollEvent.emit(elementId);

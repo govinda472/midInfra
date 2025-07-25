@@ -57,8 +57,9 @@
 }
 
 .header-logo {
-  height: 40px;
+  height: 45px; // Increased from 40px
   width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .nav-items {
@@ -121,12 +122,38 @@
   z-index: 1;
   padding: 0 1rem;
   overflow: hidden;
+  gap: 2rem; // Add spacing between elements
 }
 
 .logo {
-  max-width: 700px;
+  max-width: 900px; // Increased from 700px
+  width: 90%; // Responsive width
   height: auto;
   z-index: 2;
+  
+  // Add visual emphasis
+  filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
+  transform: scale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  
+  // Ensure crisp rendering
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  // Subtle hover effect
+  &:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 8px 35px rgba(0, 0, 0, 0.6));
+  }
+  
+  // Optional high contrast mode for even bolder appearance
+  &.high-contrast {
+    filter: contrast(1.2) drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
+    
+    &:hover {
+      filter: contrast(1.2) drop-shadow(0 8px 35px rgba(0, 0, 0, 0.6));
+    }
+  }
 }
 
 .splash-text {
@@ -134,7 +161,7 @@
   font-style: italic;
   font-size: 1.2rem;
   line-height: 1.8;
-  margin-top: 2rem;
+  margin-top: 1rem; // Reduced from 2rem due to gap
   margin-bottom: 3rem;
   max-width: 800px;
   padding: 0 2rem;
@@ -289,12 +316,12 @@ ion-menu-button {
   }
   
   .header-logo {
-    height: 30px;
+    height: 35px; // Increased from 30px
   }
   
   .logo {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 85%; // Slightly smaller on tablets
+    width: auto;
   }
 
   .splash-text {
@@ -335,6 +362,10 @@ ion-menu-button {
 }
 
 @media (max-width: 480px) {
+  .logo {
+    max-width: 80%; // Even smaller on mobile
+  }
+  
   .splash-text {
     font-size: 0.9rem;
     line-height: 1.5;
