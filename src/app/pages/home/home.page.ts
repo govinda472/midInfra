@@ -93,11 +93,17 @@ export class HomePage {
             const rect = element.getBoundingClientRect();
             const scrollRect = scrollEl.getBoundingClientRect();
             let offset = rect.top - scrollRect.top + scrollEl.scrollTop - headerHeight;
+            // iOS-specific tweak
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(typeof (window as any).MSStream !== 'undefined');
+            if (isIOS) {
+              offset = offset - 20; // tweak as needed
+            }
             if (offset < 0) offset = 0;
+            console.log('elementId:', elementId, 'headerHeight:', headerHeight, 'offset:', offset, 'isIOS:', isIOS);
             this.content.scrollToPoint(0, offset, 500);
           });
         }
       }
-    }, 200);
+    }, 700);
   }
 }
