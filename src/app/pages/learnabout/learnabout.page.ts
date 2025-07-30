@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { IonButton, IonIcon, IonContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -18,6 +18,11 @@ export class LearnaboutPage implements OnInit {
   
   ngOnInit() {}
   
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeKey(event: KeyboardEvent) {
+    this.closePage();
+  }
+
   closePage() {
     this.location.back();
   }
