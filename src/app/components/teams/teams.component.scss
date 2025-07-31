@@ -28,6 +28,15 @@
   gap: 2rem;
   padding: 2rem 0;
   justify-items: center;
+  
+  /* Center the last two members (Alex and Ben) */
+  .team-member:nth-child(5) {
+    grid-column: 2;
+  }
+  
+  .team-member:nth-child(6) {
+    grid-column: 3;
+  }
 }
 
 .team-member {
@@ -125,6 +134,15 @@
 @media (max-width: 1400px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
+    
+    /* Reset grid positioning for 3-column layout */
+    .team-member:nth-child(5) {
+      grid-column: auto;
+    }
+    
+    .team-member:nth-child(6) {
+      grid-column: auto;
+    }
   }
   
   .team-heading {
