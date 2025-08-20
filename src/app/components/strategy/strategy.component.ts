@@ -45,7 +45,7 @@ export class StrategyComponent  implements OnInit {
       iconPath: '../../assets/rail.svg'
     },
     {
-      title: 'Commodity Management, Storage and Transportation',
+      title: 'Storage and Transportation',
       iconPath: '../../assets/rail.svg'
     },
     {

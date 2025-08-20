@@ -1,74 +1,156 @@
-.message-container {
+.story-container {
+  display: flex;
   min-height: 100vh;
   background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 4rem 2rem;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
  }
  
- .message-content {
-  max-width: 900px;
-  padding: 4rem;
-  margin-top: 2rem;
- 
+ .text-section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 800px;
   @media (max-width: 768px) {
-    padding: 2rem;
+    padding: 1.5rem;
+    flex: none;
   }
  }
  
  .subtitle {
-  display: block;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
-  color: #666;
-  margin-bottom: 4rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  color: #333;
   text-transform: uppercase;
  }
  
- .founder-message {
-  .intro-text {
-    font-size: 2.5rem;
-    line-height: 1.3;
-    color: #000;
-    margin-bottom: 3.5rem;
-    font-weight: 300;
-   
-    @media (max-width: 768px) {
-      font-size: 2rem;
+ .main-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #000;
+  letter-spacing: -0.02em;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+ }
+ 
+ .story-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  p {
+    margin-bottom: 0.8rem;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
-  
-  .main-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 2rem;
-    max-width: 85ch;
-   
-    &:last-of-type {
-      margin-bottom: 4rem;
+  .emphasis {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    margin-top: 0.8rem;
+    line-height: 1.3;
+    &.bold-text {
+      font-weight: 700;
+    }
+  }
+  strong {
+    color: #000;
+    font-weight: 600;
+  }
+ }
+
+ .signature-section {
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+  margin-top: 2rem;
+
+  .signature-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+  }
+
+  .signature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    @media (min-width: 768px) {
+      flex: 1;
+    }
+  }
+
+  .signature-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .signature-title {
+    font-size: 1rem;
+    color: #666;
+    letter-spacing: 0.05em;
+    margin: 0;
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
     }
   }
  }
  
- .signature-section {
-  border-top: 1px solid #eee;
-  padding-top: 3rem;
-  margin-top: 4rem;
- 
-  .signature {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #000;
-    margin-bottom: 0.75rem;
+ .image-section {
+  flex: 1;
+  position: relative;
+  height: 100vh;
+  @media (max-width: 768px) {
+    height: 50vh;
   }
+ }
+ 
+ .placeholder-image {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 1.2rem;
+  position: relative;
   
-  .title {
-    font-size: 1.2rem;
-    color: #666;
-    letter-spacing: 0.05em;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+      transparent 40%, 
+      rgba(200, 200, 200, 0.1) 50%, 
+      transparent 60%);
   }
  }
  
@@ -98,24 +180,34 @@
   }
  }
  
- html {
-  scroll-behavior: smooth;
+ .text-section,
+ .image-section {
+  transition: all 0.3s ease-in-out;
  }
  
- @media (max-width: 768px) {
-  .message-content {
-    padding: 2rem 1.5rem;
+ @media (max-width: 480px) {
+  .text-section {
+    padding: 1rem;
   }
+  .main-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .story-text {
+    font-size: 0.9rem;
+  }
+ }
  
-  .founder-message {
-    .main-text {
-      font-size: 1.1rem;
-    }
-  }
+ body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+ }
  
-  .signature-section {
-    .signature {
-      font-size: 1.4rem;
-    }
-  }
+ *, *::before, *::after {
+  box-sizing: border-box;
  }

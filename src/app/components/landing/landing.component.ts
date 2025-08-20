@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, inject, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, inject, ElementRef, HostListener } from '@angular/core';
 import {
   IonButton,
   IonMenuButton,
@@ -35,11 +35,12 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ]
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
   showLogo = inject(ShowlogoService);
   menuItems = ['Home', 'About', 'Strategy', 'Team', 'Contact'];
   @Output() scrollEvent = new EventEmitter<string>();
   showFooter = false;
+  private navigationTimer?: number;
  
   constructor(
     private menuCtrl: MenuController,
@@ -51,10 +52,25 @@ export class LandingComponent implements OnInit {
     if (this.showFooter) {
       this.showFooter = false;
     }
+    // Clear navigation timer if user scrolls (navigation will be shown by scroll trigger instead)
+    if (this.navigationTimer) {
+      clearTimeout(this.navigationTimer);
+      this.navigationTimer = undefined;
+    }
   }
  
   ngOnInit() {
     this.menuCtrl.enable(true);
+    // Start 30-second timer to show navigation bar
+    this.startNavigationTimer();
+  }
+
+  private startNavigationTimer() {
+    this.navigationTimer = setTimeout(() => {
+      if (!this.showLogo._showLogo) {
+        this.showLogo.set_showLogo = true;
+      }
+    }, 30000); // 30 seconds
   }
 
   async closeMenu() {
@@ -129,6 +145,12 @@ export class LandingComponent implements OnInit {
       }
     );
     observer.observe(this.elementRef.nativeElement);
+  }
+
+  ngOnDestroy() {
+    if (this.navigationTimer) {
+      clearTimeout(this.navigationTimer);
+    }
   }
 
   scrollDown() {

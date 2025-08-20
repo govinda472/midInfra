@@ -65,9 +65,14 @@ src/app/
 
 ### Routing
 - Routes are defined in `src/app/app.routes.ts`
-- All routes use lazy loading for performance
+- All routes use lazy loading with `loadComponent()` for performance
 - Default route redirects to `/home`
-- Individual team member pages use path patterns like `/rgupta`, `/aweinstein`, etc.
+- Individual team member pages use specific path patterns:
+  - `/rgupta` → Raj Gupta page
+  - `/glamphere` → Gilbert Lamphere page  
+  - `/aweinstein` → Alex Weinstein page
+  - `/bsamuels` → Ben Samuels page
+  - `/rworkman` → Rodney Workman page
 
 ### Services
 - `NavigateService`: Manages scroll-based navigation using RxJS Subjects

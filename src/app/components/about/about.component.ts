@@ -80,15 +80,15 @@ export class AboutComponent implements OnInit, AfterViewInit {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          // Check if element is more than 50% visible
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          // Check if element is more than 15% visible
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
             console.log('hello');
             this.showLogo.set_showLogo = true;
           }
         });
       },
       {
-        threshold: 0.7, // Triggers when 50% of the component is visible
+        threshold: 0.15, // Triggers when 15% of the component is visible
         rootMargin: '0px' // No margin adjustment
       }
     );
