@@ -1,6 +1,6 @@
 .rail-container {
   height: 100vh;
-  background: linear-gradient(135deg, #003B71 0%, #002447 100%);
+  background: linear-gradient(135deg, #0a1325 0%, #061019 100%);
   color: white;
   display: flex;
   justify-content: center;
@@ -13,18 +13,17 @@
  .content-section {
   max-width: 1200px;
   width: 100%;
-  height: 100%;
   padding: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: center;
   
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
     padding: 1.5rem;
-    gap: 0.5rem;
-    align-items: flex-start;
+    gap: 1.5rem;
+    align-items: center;
   }
  }
  

@@ -14,12 +14,21 @@
 }
 
 .team-heading {
-  font-size: 7rem;
+  font-size: 50px;
   font-weight: bold;
   margin-bottom: 6rem;
   color: #333;
   text-align: left;
   padding: 3rem 0;
+  @media (min-width: 1024px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 }
 
 .team-grid {
@@ -122,10 +131,6 @@
 
 /* Responsive design */
 @media (max-width: 1800px) {
-  .team-heading {
-    font-size: 6rem;
-  }
-  
   .team-content {
     max-width: 1600px;
   }
@@ -146,7 +151,6 @@
   }
   
   .team-heading {
-    font-size: 5rem;
     margin-bottom: 5rem;
   }
   
@@ -162,9 +166,6 @@
     gap: 1.8rem;
   }
   
-  .team-heading {
-    font-size: 4rem;
-  }
   
   .team-member {
     width: 260px; // Slightly smaller
@@ -187,7 +188,6 @@
   }
   
   .team-heading {
-    font-size: 3.5rem;
     margin-bottom: 4rem;
   }
   
@@ -208,7 +208,6 @@
   }
   
   .team-heading {
-    font-size: 2.8rem;
     text-align: center;
     margin-bottom: 3rem;
   }
