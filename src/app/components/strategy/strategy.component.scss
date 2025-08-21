@@ -56,28 +56,28 @@
   z-index: 1;
   
   /* First row: 3 boxes centered */
-  .focus-box:nth-child(1) {
+  .focus-item:nth-child(1) {
     grid-column: 1 / 3;
     justify-self: center;
   }
   
-  .focus-box:nth-child(2) {
+  .focus-item:nth-child(2) {
     grid-column: 3 / 5;
     justify-self: center;
   }
   
-  .focus-box:nth-child(3) {
+  .focus-item:nth-child(3) {
     grid-column: 5 / 7;
     justify-self: center;
   }
   
   /* Second row: 2 boxes centered */
-  .focus-box:nth-child(4) {
+  .focus-item:nth-child(4) {
     grid-column: 2 / 4;
     justify-self: center;
   }
   
-  .focus-box:nth-child(5) {
+  .focus-item:nth-child(5) {
     grid-column: 4 / 6;
     justify-self: center;
   }
@@ -91,11 +91,11 @@
     gap: 100px 40px;
     
     /* Reset to normal 2-column layout for smaller screens */
-    .focus-box:nth-child(1),
-    .focus-box:nth-child(2),
-    .focus-box:nth-child(3),
-    .focus-box:nth-child(4),
-    .focus-box:nth-child(5) {
+    .focus-item:nth-child(1),
+    .focus-item:nth-child(2),
+    .focus-item:nth-child(3),
+    .focus-item:nth-child(4),
+    .focus-item:nth-child(5) {
       grid-column: unset;
       justify-self: center;
     }
@@ -106,17 +106,28 @@
     max-width: none;
     margin: 0 auto;
     
-    .focus-box:nth-child(1),
-    .focus-box:nth-child(2),
-    .focus-box:nth-child(3),
-    .focus-box:nth-child(4),
-    .focus-box:nth-child(5) {
+    .focus-item:nth-child(1),
+    .focus-item:nth-child(2),
+    .focus-item:nth-child(3),
+    .focus-item:nth-child(4),
+    .focus-item:nth-child(5) {
       grid-column: unset;
       justify-self: center;
     }
   }
   @media (max-width: 480px) {
     gap: 80px 20px;
+  }
+}
+
+.focus-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+  .focus-box:hover + .title {
+    transform: translateY(-5px);
   }
 }
 
@@ -144,10 +155,6 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    
-    .title {
-      transform: translateY(-5px);
-    }
     
     .icon {
       transform: translateX(-50%) scale(1.1);
@@ -265,20 +272,22 @@
 .title {
   font-size: 1.25em;
   font-weight: bold;
-  margin-top: 35px;
+  margin-top: 20px;
   line-height: 1.4;
   padding: 0 12px;
+  text-align: center;
+  color: #ffffff;
   transition: transform 0.3s ease;
   @media (max-width: 1024px) {
     font-size: 1.15em;
   }
   @media (max-width: 480px) {
     font-size: 1.05em;
-    margin-top: 22px;
+    margin-top: 15px;
   }
 }
 
-.focus-box:nth-child(1) {
+.focus-item:nth-child(1) .focus-box {
   position: relative;
   
   .feature-image-container {
@@ -307,18 +316,9 @@
       opacity: 0.8;
     }
   }
-  
-  .title {
-    position: relative;
-    z-index: 5;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    padding: 8px 12px;
-  }
 }
 
-.focus-box:nth-child(2) {
+.focus-item:nth-child(2) .focus-box {
   position: relative;
   
   .feature-image-container {
@@ -347,18 +347,9 @@
       opacity: 0.8;
     }
   }
-  
-  .title {
-    position: relative;
-    z-index: 5;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    padding: 8px 12px;
-  }
 }
 
-.focus-box:nth-child(3) {
+.focus-item:nth-child(3) .focus-box {
   position: relative;
   
   .feature-image-container {
@@ -387,18 +378,9 @@
       opacity: 0.8;
     }
   }
-  
-  .title {
-    position: relative;
-    z-index: 5;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    padding: 8px 12px;
-  }
 }
 
-.focus-box:nth-child(4) {
+.focus-item:nth-child(4) .focus-box {
   position: relative;
   
   .feature-image-container {
@@ -427,18 +409,9 @@
       opacity: 0.8;
     }
   }
-  
-  .title {
-    position: relative;
-    z-index: 5;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    padding: 8px 12px;
-  }
 }
 
-.focus-box:nth-child(5) {
+.focus-item:nth-child(5) .focus-box {
   position: relative;
   
   .feature-image-container {
@@ -466,15 +439,6 @@
     img {
       opacity: 0.8;
     }
-  }
-  
-  .title {
-    position: relative;
-    z-index: 5;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    padding: 8px 12px;
   }
 }
 
