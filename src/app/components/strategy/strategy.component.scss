@@ -142,8 +142,7 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
-  border: 2px solid #ffffff; /* Reduced border width */
-  border-top: none;
+  border: 2px solid #ffffff; /* Solid border all around */
   transition: all 0.3s ease;
   cursor: pointer;
   width: 100%;
@@ -161,22 +160,6 @@
     }
   }
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: calc(50% - 35px);
-    height: 2px;
-    background-color: #ffffff;
-    transition: width 0.3s ease;
-  }
-  &::before {
-    left: 0;
-  }
-  &::after {
-    right: 0;
-  }
 
   @media (max-width: 1400px) {
     max-width: 320px;
