@@ -237,6 +237,10 @@ ion-menu-button {
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 1;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
   
   span {
     display: block;
@@ -363,43 +367,3 @@ ion-menu-button {
   }
 }
 
-ion-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  transform: translateY(100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 1000;
-
-  &.visible {
-    transform: translateY(0);
-  }
-}
-
-.minimal-footer {
-  background: rgba(10, 19, 37, 0.9);
-  padding: 0.3rem 1rem;
-  
-  .footer-content {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.5rem;
-    align-items: center;
-    
-    .footer-btn {
-      --color: #fff;
-      font-size: 11px;
-      text-transform: none;
-      --padding-start: 6px;
-      --padding-end: 6px;
-      height: 28px;
-      margin: 0;
-      opacity: 0.85;
-      
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
-}
