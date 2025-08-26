@@ -8,6 +8,12 @@ export interface SEOData {
   image?: string;
   url?: string;
   type?: string;
+  structuredData?: any;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
 }
 
 @Injectable({
@@ -54,6 +60,41 @@ export class SeoService {
     if (data.image) {
       this.meta.updateTag({ name: 'twitter:image', content: data.image });
     }
+
+    // Add structured data if provided
+    if (data.structuredData) {
+      this.addStructuredData(data.structuredData);
+    }
+  }
+
+  addStructuredData(data: any): void {
+    // Remove existing structured data script
+    const existingScript = document.getElementById('structured-data');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Add new structured data
+    const script = document.createElement('script');
+    script.id = 'structured-data';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(data);
+    document.head.appendChild(script);
+  }
+
+  addBreadcrumbStructuredData(breadcrumbs: BreadcrumbItem[]): void {
+    const breadcrumbStructuredData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": item.url
+      }))
+    };
+
+    this.addStructuredData(breadcrumbStructuredData);
   }
 
   setDefaultSEO(): void {
