@@ -1,8 +1,8 @@
 {
-  "name": "midrail",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "midinfra-capital-partners",
+  "version": "1.0.0",
+  "author": "MidInfra Capital Partners",
+  "homepage": "https://midinfra.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -60,5 +60,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.0"
   },
-  "description": "An Ionic project"
+  "description": "MidInfra Capital Partners - Next-generation infrastructure asset management company deploying $1+ billion in rail and infrastructure assets"
 }

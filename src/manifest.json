@@ -1,0 +1,27 @@
+{
+  "name": "MidInfra Capital Partners",
+  "short_name": "MidInfra",
+  "description": "Next-generation infrastructure asset management company",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1325",
+  "theme_color": "#0a1325",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "finance", "investment"],
+  "lang": "en",
+  "dir": "ltr"
+}
