@@ -15,17 +15,17 @@
   </ion-content>
 </ion-menu>
 
-<div class="landing-page" id="main-content" (click)="closeMenu()">
+<main class="landing-page" id="main-content" (click)="closeMenu()">
   <!-- Mobile Menu Button -->
   <div class="nav-items">
     @if (isMobile()) {
-      <ion-menu-button color="white"></ion-menu-button>
+      <ion-menu-button color="white" aria-label="Open navigation menu"></ion-menu-button>
     }
   </div>
 
-  <div class="nav-header" [class.visible]="showLogo._showLogo">
+  <header class="nav-header" [class.visible]="showLogo._showLogo" role="banner">
     <!-- Desktop Navigation -->
-    <div class="nav-items desktop-items">
+    <nav class="nav-items desktop-items" role="navigation" aria-label="Main navigation">
       @if (!isMobile()) {
         @for (item of menuItems; track $index) {
           <ion-button
@@ -33,38 +33,40 @@
             color="light"
             (click)="navigateTo(item)"
             class="nav-button"
+            [attr.aria-label]="'Navigate to ' + item"
           >
             <span style="color: white;">{{ item }}</span>
           </ion-button>
         }
       }
-    </div>
+    </nav>
     
     <div class="nav-brand" [class.scroll-active]="showLogo._showLogo">
-      <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="header-logo">
+      <img src="../../../assets/midlogo.png" alt="MidInfra Capital Partners Logo" class="header-logo">
     </div>
-  </div>
+  </header>
 
-  <div class="hero-container">
-    <img src="../../../assets/midlogo.png" alt="MidInfra Logo" class="logo">
+  <section class="hero-container" role="banner" aria-labelledby="hero-title">
+    <img src="../../../assets/midlogo.png" alt="MidInfra Capital Partners Logo" class="logo">
+    <h1 id="hero-title" class="visually-hidden">MidInfra Capital Partners</h1>
     <p class="splash-text">
-      Midinfra Capital Partners is a next-generation infrastructure asset management company, 
+      MidInfra Capital Partners is a next-generation infrastructure asset management company, 
       seeking to deploy $1+ billion of capital in rail and other infrastructure assets over the next 2-3 years
     </p>
-    <div class="scroll-arrow" (click)="scrollDown()">
+    <button class="scroll-arrow" (click)="scrollDown()" aria-label="Scroll down to learn more">
       <span></span>
       <span></span>
       <span></span>
-    </div>
-  </div>
-</div>
+    </button>
+  </section>
+</main>
 
-<ion-footer [class.visible]="showFooter">
+<footer [class.visible]="showFooter" role="contentinfo">
   <div class="minimal-footer">
     <div class="footer-content">
-      <ion-button routerLink="/legal" fill="clear" class="footer-btn">Legal Notices</ion-button>
-      <ion-button routerLink="/privacy" fill="clear" class="footer-btn">Privacy Policy</ion-button>
-      <ion-button routerLink="/terms" fill="clear" class="footer-btn">Terms of Use</ion-button>
+      <ion-button routerLink="/legal" fill="clear" class="footer-btn" aria-label="View legal notices">Legal Notices</ion-button>
+      <ion-button routerLink="/privacy" fill="clear" class="footer-btn" aria-label="View privacy policy">Privacy Policy</ion-button>
+      <ion-button routerLink="/terms" fill="clear" class="footer-btn" aria-label="View terms of use">Terms of Use</ion-button>
     </div>
   </div>
-</ion-footer>
+</footer>

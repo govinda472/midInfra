@@ -20,6 +20,7 @@ import { StrategyComponent } from "../../components/strategy/strategy.component"
 import { TeamsComponent } from "../../components/teams/teams.component";
 import { ContactUsComponent } from "../../components/contact-us/contact-us.component";
 import { NavigateService } from '../../services/navigate.service';
+import { SeoService } from '../../services/seo.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
@@ -60,9 +61,20 @@ export class HomePage {
   @ViewChild(IonContent) content!: IonContent;
   private scrollSubscription!: Subscription;
   navigateService = inject(NavigateService);
+  seoService = inject(SeoService);
+  
   constructor() {}
 
   ngOnInit() {
+    // Set SEO for home page
+    this.seoService.updateSEO({
+      title: 'MidInfra Capital Partners - Infrastructure Asset Management & Investment',
+      description: 'Leading infrastructure asset management company deploying $1+ billion in rail, ports, and data connectivity assets. Expert infrastructure investment solutions.',
+      keywords: 'infrastructure investment, rail assets, ports management, data connectivity, infrastructure fund, asset management, MidInfra',
+      url: 'https://midinfra.com/home',
+      type: 'website'
+    });
+
     this.scrollSubscription = this.navigateService.scrollEvent$.subscribe(elementId => {
       this.scrollTo(elementId);
     });
