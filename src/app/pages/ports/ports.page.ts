@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
@@ -10,6 +10,7 @@ import {
   IonButton, 
   IonIcon 
 } from '@ionic/angular/standalone';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-ports',
@@ -28,9 +29,18 @@ import {
   ]
 })
 export class PortsPage implements OnInit {
+  private seoService = inject(SeoService);
+
   constructor(private location: Location) { }
 
   ngOnInit() {
+    this.seoService.updateSEO({
+      title: 'Ports & Marine Terminals - MidInfra Capital Partners',
+      description: 'MidInfra Capital Partners specializes in port and marine terminal investments, providing strategic infrastructure solutions for maritime logistics and cargo handling.',
+      keywords: 'ports investment, marine terminals, port infrastructure, maritime logistics, cargo handling, port development, MidInfra ports',
+      url: 'https://midinfra.com/ports',
+      type: 'website'
+    });
   }
 
   @HostListener('document:keydown.escape', ['$event'])

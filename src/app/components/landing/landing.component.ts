@@ -10,7 +10,7 @@ import {
   IonList,
   IonItem,
   IonLabel,
-  IonFooter } from '@ionic/angular/standalone';
+} from '@ionic/angular/standalone';
 import { MenuController } from '@ionic/angular';
 import { ShowlogoService } from 'src/app/services/show/showlogo.service';
 import { RouterModule } from '@angular/router';
@@ -31,7 +31,6 @@ import { RouterModule } from '@angular/router';
     IonList,
     IonItem,
     IonLabel,
-    IonFooter,
     RouterModule
   ]
 })
@@ -39,7 +38,6 @@ export class LandingComponent implements OnInit, OnDestroy {
   showLogo = inject(ShowlogoService);
   menuItems = ['Home', 'About', 'Strategy', 'Team', 'Contact'];
   @Output() scrollEvent = new EventEmitter<string>();
-  showFooter = false;
   private navigationTimer?: number;
  
   constructor(
@@ -49,9 +47,6 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    if (this.showFooter) {
-      this.showFooter = false;
-    }
     // Clear navigation timer if user scrolls (navigation will be shown by scroll trigger instead)
     if (this.navigationTimer) {
       clearTimeout(this.navigationTimer);
@@ -154,7 +149,6 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   scrollDown() {
-    this.showFooter = true;
     const aboutSection = document.getElementById('about');
     if (aboutSection && this.isMobile()) {
       const offset = aboutSection.offsetTop + 100;

@@ -4,9 +4,25 @@ Allow: /
 # Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
+Disallow: /assets/temp/
+
+# Allow important assets
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
+
+# Specific bot configurations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 # Sitemap location
 Sitemap: https://midinfra.com/sitemap.xml
 
-# Crawl delay (optional)
-Crawl-delay: 1
+# Crawl delay (optional) - reduced for better performance
+Crawl-delay: 0.5

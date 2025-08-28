@@ -3,7 +3,8 @@
     "allow": [
       "Bash(copy:*)",
       "Bash(cp:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)"
     ],
     "deny": [],
     "ask": []
