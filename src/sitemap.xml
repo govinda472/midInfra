@@ -1,116 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://midinfra.com/</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/midlogo.png</image:loc>
+      <image:title>MidInfra Capital Partners Logo</image:title>
+      <image:caption>Next-generation infrastructure asset management company logo</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/home</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/Midinfralanding.jpg</image:loc>
+      <image:title>MidInfra Infrastructure Landing</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/learnmore</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/learnabout</loc>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://midinfra.com/history</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/historyimg.jpg</image:loc>
+      <image:title>MidInfra Capital Partners History</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/approach</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/approach.jpg</image:loc>
+      <image:title>Investment Approach - MidInfra Capital Partners</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/message</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/message.png</image:loc>
+      <image:title>Message from Leadership</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/industrial-rail</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/shortindustrial.png</image:loc>
+      <image:title>Industrial Rail Solutions</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/ports</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/ports.png</image:loc>
+      <image:title>Ports and Marine Terminals Investment</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/rail-parks</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/railpark.png</image:loc>
+      <image:title>Rail Parks Infrastructure</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/commodity</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/storageandtransport.png</image:loc>
+      <image:title>Commodity Storage and Transportation</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/data-connectivity</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T10:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/data.png</image:loc>
+      <image:title>Data Connectivity Infrastructure</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/rgupta</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/rajgupta</loc>
+    <lastmod>2025-01-14T09:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/team6.jpg</image:loc>
+      <image:title>Raj K. Gupta - Managing Partner</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/glamphere</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/gilbert</loc>
+    <lastmod>2025-01-14T09:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/michael.jpg</image:loc>
+      <image:title>Gilbert Lamphere - Team Member</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/aweinstein</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/alex</loc>
+    <lastmod>2025-01-14T09:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/alex headshot.jpg</image:loc>
+      <image:title>Alex Weinstein - Team Member</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/bsamuels</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/ben</loc>
+    <lastmod>2025-01-14T09:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/ben headshot.jpg</image:loc>
+      <image:title>Ben Samuels - Team Member</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://midinfra.com/rworkman</loc>
-    <lastmod>2025-08-26</lastmod>
+    <loc>https://midinfra.com/rodney</loc>
+    <lastmod>2025-01-14T09:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://midinfra.com/assets/rodney.jpg</image:loc>
+      <image:title>Rodney Workman - Team Member</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://midinfra.com/legal</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T08:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://midinfra.com/privacy</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T08:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://midinfra.com/terms</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-01-14T08:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

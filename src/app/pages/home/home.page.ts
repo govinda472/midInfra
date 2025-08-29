@@ -66,13 +66,73 @@ export class HomePage {
   constructor() {}
 
   ngOnInit() {
-    // Set SEO for home page
+    // Set enhanced SEO for home page
     this.seoService.updateSEO({
-      title: 'MidInfra Capital Partners - Infrastructure Asset Management & Investment',
-      description: 'Leading infrastructure asset management company deploying $1+ billion in rail, ports, and data connectivity assets. Expert infrastructure investment solutions.',
-      keywords: 'infrastructure investment, rail assets, ports management, data connectivity, infrastructure fund, asset management, MidInfra',
+      title: 'MidInfra Capital Partners - Next-Generation Infrastructure Asset Management | $40B+ Value Creation',
+      description: 'MidInfra Capital Partners is a next-generation infrastructure asset management company with nearly 40 years track record. Based in La Jolla, CA and New York, NY, we deploy $1+ billion in rail, ports, terminals, data centers and wireless infrastructure assets, creating platform companies and generating $40+ billion in value for investors.',
+      keywords: 'infrastructure asset management, private equity, rail infrastructure, ports investment, data connectivity, infrastructure fund, freight railroads, terminals, wireless communications, MidInfra Capital Partners, La Jolla investment firm, New York private equity, maritime logistics, commodity transportation, industrial rail solutions, asset-intensive segments, platform companies, infrastructure investing, transportation infrastructure, digital infrastructure',
       url: 'https://midinfra.com/home',
-      type: 'website'
+      type: 'website',
+      image: 'https://midinfra.com/assets/midlogo.png',
+      author: 'MidInfra Capital Partners',
+      locale: 'en-US',
+      modifiedTime: new Date().toISOString(),
+      section: 'Infrastructure Investment',
+      publishedTime: '2025-01-14T12:00:00+00:00'
+    });
+
+    // Add comprehensive structured data for home page
+    const homePageStructuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "MidInfra Capital Partners - Home",
+      "description": "Next-generation infrastructure asset management company with nearly 40 years track record specializing in rail, ports, and data connectivity investments.",
+      "url": "https://midinfra.com/home",
+      "mainEntity": {
+        "@type": ["Organization", "InvestmentFund"],
+        "name": "MidInfra Capital Partners",
+        "description": "Infrastructure private equity firm with 29 followers on LinkedIn, specializing in asset management and freight railroads.",
+        "foundingDate": "1985",
+        "numberOfEmployees": "2-10",
+        "industry": "Investment Management",
+        "address": [{
+          "@type": "PostalAddress",
+          "addressLocality": "La Jolla",
+          "addressRegion": "California",
+          "addressCountry": "US"
+        }],
+        "sameAs": ["https://www.linkedin.com/company/midinfra-capital-partners-llc/"],
+        "knowsAbout": [
+          "private equity",
+          "infrastructure investing", 
+          "asset management",
+          "freight railroads"
+        ]
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://midinfra.com/home"
+        }]
+      }
+    };
+
+    this.seoService.updateSEO({
+      title: 'MidInfra Capital Partners - Next-Generation Infrastructure Asset Management | $40B+ Value Creation',
+      description: 'MidInfra Capital Partners is a next-generation infrastructure asset management company with nearly 40 years track record. Based in La Jolla, CA and New York, NY, we deploy $1+ billion in rail, ports, terminals, data centers and wireless infrastructure assets, creating platform companies and generating $40+ billion in value for investors.',
+      keywords: 'infrastructure asset management, private equity, rail infrastructure, ports investment, data connectivity, infrastructure fund, freight railroads, terminals, wireless communications, MidInfra Capital Partners, La Jolla investment firm, New York private equity, maritime logistics, commodity transportation, industrial rail solutions, asset-intensive segments, platform companies, infrastructure investing, transportation infrastructure, digital infrastructure',
+      url: 'https://midinfra.com/home',
+      type: 'website',
+      image: 'https://midinfra.com/assets/midlogo.png',
+      author: 'MidInfra Capital Partners',
+      locale: 'en-US',
+      modifiedTime: new Date().toISOString(),
+      section: 'Infrastructure Investment',
+      publishedTime: '2025-01-14T12:00:00+00:00',
+      structuredData: homePageStructuredData
     });
 
     this.scrollSubscription = this.navigateService.scrollEvent$.subscribe(elementId => {
